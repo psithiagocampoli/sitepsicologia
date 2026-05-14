@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Plataforma | Thiago Soares Campoli</title>
+    <link rel="stylesheet" href="platform-styles.css">
+</head>
+<body>
+
+    <!-- Navbar -->
+    <nav class="ead-navbar" id="navbar">
+        <div class="ead-nav-left">
+            <a href="plataforma.html" class="ead-logo">
+                <img src="assets/logo.png" alt="Logo Thiago Soares Campoli" onerror="this.outerHTML='<h3 style=\'color:white;\'>Thiago Soares</h3>'">
+            </a>
+            <ul class="ead-menu">
+                <li><a href="#" class="active">Início</a></li>
+                <li><a href="#">Cursos e Formações</a></li>
+                <li><a href="#">Materiais de Apoio</a></li>
+                <li><a href="#">Minha Lista</a></li>
+            </ul>
+        </div>
+        <div class="ead-nav-right">
+            <svg class="nav-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+            <div class="profile-avatar" title="Meu Perfil"></div>
+        </div>
+    </nav>
+
+    <!-- Hero / Destaque -->
+    <header class="ead-hero">
+        <div class="hero-vignette"></div>
+        <div class="hero-vignette-bottom"></div>
+        <div class="hero-content">
+            <h1 class="hero-title">TDAH na Infância: Guia Prático</h1>
+            <p class="hero-desc">Uma formação completa estruturada passo a passo para pais e cuidadores compreenderem, acolherem e lidarem com os desafios do Transtorno de Déficit de Atenção com Hiperatividade no dia a dia.</p>
+            <div class="hero-buttons">
+                <!-- Links directly to the course player page -->
+                <a href="plataforma-curso.html" class="btn-play">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="black"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
+                    Assistir Aula 1
+                </a>
+                <a href="#" class="btn-info">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="16" x2="12" y2="12"></line><line x1="12" y1="8" x2="12.01" y2="8"></line></svg>
+                    Mais Informações
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Trilhas / Catálogo -->
+    <main class="ead-main">
+        
+        <div class="slider-row">
+            <h3 class="slider-title">Meus Cursos e Formações</h3>
+            <div class="slider-container">
+                <!-- Course 1: TDAH -->
+                <div class="course-card" onclick="window.location.href='plataforma-curso.html'">
+                    <img src="https://images.unsplash.com/photo-1493661284688-668045f4af45?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="TDAH" class="course-thumb">
+                    <div class="course-overlay"><span class="course-overlay-title">Transtorno de Déficit de Atenção e Hiperatividade</span></div>
+                </div>
+                
+                <!-- Course 2: Neuropsicologia Infantil -->
+                <div class="course-card" onclick="window.location.href='plataforma-neuro.html'">
+                    <img src="https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Neuropsicologia" class="course-thumb">
+                    <div class="course-overlay"><span class="course-overlay-title">Neuropsicologia Clínica Infantil</span></div>
+                </div>
+            </div>
+        </div>
+
+    </main>
+
+    <script>
+        // Navbar background transition on scroll
+        window.addEventListener('scroll', () => {
+            const nav = document.getElementById('navbar');
+            if (window.scrollY > 50) {
+                nav.classList.add('scrolled');
+            } else {
+                nav.classList.remove('scrolled');
+            }
+        });
+    </script>
+</body>
+</html>

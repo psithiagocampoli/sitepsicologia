@@ -1,0 +1,1185 @@
+/* =========================================
+   Psychologist Website - Core Styles
+   ========================================= */
+
+:root {
+    /* Color Palette - Suave, Calma, Confiança */
+    --color-bg-main: #FAFAFA;       /* Limpo, claro, muito respirável */
+    --color-bg-soft: #F4F1ED;       /* Leve tom de areia / bege acolhedor */
+    --color-bg-primary: #6E7C76;    /* Verde sálvia muito elegante e tranquilo */
+    --color-bg-dark: #3F4744;       /* Tom escuro para contrastes marcantes e sofisticação */
+    
+    --color-text-main: #2F2F2F;     /* Cinza muito escuro (menos agressivo q preto) */
+    --color-text-light: #5E5E5E;    /* Para subtítulos e textos secundários */
+    --color-text-inverse: #FCFCFC;  /* Branco puro para textos sobre fundos escuros */
+    
+    --color-accent: #B29B84;        /* Tom de terra/areia quente para detalhes e ícones */
+    --color-card-bg: #FFFFFF;
+    --color-border: #E8E8E8;
+
+    /* Typography */
+    --font-heading: 'Playfair Display', serif; /* Elegante, transmite profundidade */
+    --font-body: 'Inter', sans-serif;          /* Minimalista, limpa e legível */
+    
+    /* Spacing */
+    --spacing-xs: 0.5rem;   /* 8px  */
+    --spacing-sm: 1rem;     /* 16px */
+    --spacing-md: 2rem;     /* 32px */
+    --spacing-lg: 4rem;     /* 64px */
+    --spacing-xl: 6rem;     /* 96px */
+    
+    /* Utility */
+    --border-radius-sm: 8px;
+    --border-radius-md: 16px;
+    --border-radius-lg: 24px;
+    --transition-fast: 0.3s ease;
+    --transition-slow: 0.5s cubic-bezier(0.25, 1, 0.5, 1);
+    
+    --box-shadow-soft: 0 10px 30px rgba(0, 0, 0, 0.04);
+    --box-shadow-hover: 0 15px 40px rgba(0, 0, 0, 0.08);
+}
+
+/* =========================================
+   Reset & Base globally
+   ========================================= */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: var(--font-body);
+    background-color: var(--color-bg-main);
+    color: var(--color-text-main);
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+/* Typography Base */
+h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-heading);
+    font-weight: 500;
+    line-height: 1.2;
+    color: inherit;
+}
+
+p {
+    margin-bottom: var(--spacing-sm);
+    color: var(--color-text-light);
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+    transition: color var(--transition-fast);
+}
+
+ul {
+    list-style: none;
+}
+
+/* Utilities */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 var(--spacing-sm);
+}
+
+.text-center { text-align: center; }
+.text-inverse { color: var(--color-text-inverse); }
+.text-inverse p { color: rgba(255, 255, 255, 0.85); }
+
+.bg-soft { background-color: var(--color-bg-soft); }
+.bg-primary { background-color: var(--color-bg-primary); }
+.bg-dark { background-color: var(--color-bg-dark); }
+
+.mt-md { margin-top: var(--spacing-md); }
+.mt-lg { margin-top: var(--spacing-lg); }
+.mb-md { margin-bottom: var(--spacing-md); }
+
+/* Common Section Styles */
+section {
+    padding: var(--spacing-xl) 0;
+}
+
+.section-title {
+    font-size: 2.8rem;
+    margin-bottom: var(--spacing-md);
+    position: relative;
+    color: var(--color-bg-dark);
+}
+
+.text-inverse .section-title {
+    color: var(--color-text-inverse);
+}
+
+.section-subtitle {
+    font-size: 1.15rem;
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+/* =========================================
+   Buttons
+   ========================================= */
+.btn-primary {
+    display: inline-flex;
+    align-items: center;
+    background-color: var(--color-bg-primary);
+    color: var(--color-text-inverse);
+    padding: 1rem 2rem;
+    border-radius: 50px;
+    font-weight: 500;
+    font-size: 1rem;
+    letter-spacing: 0.5px;
+    transition: all var(--transition-fast);
+    border: 1px solid transparent;
+    box-shadow: 0 4px 15px rgba(110, 124, 118, 0.3);
+}
+
+.btn-primary:hover {
+    background-color: var(--color-bg-dark);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(63, 71, 68, 0.4);
+    color: var(--color-text-inverse);
+}
+
+.btn-large {
+    padding: 1.2rem 2.5rem;
+    font-size: 1.1rem;
+}
+
+/* =========================================
+   Navbar (Header)
+   ========================================= */
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    padding: 1.5rem 0;
+    background-color: transparent;
+    transition: all var(--transition-fast);
+}
+
+.navbar.scrolled {
+    background-color: rgba(250, 250, 250, 0.96);
+    backdrop-filter: blur(12px);
+    padding: 1rem 0;
+    box-shadow: 0 2px 20px rgba(0, 0, 0, 0.05);
+}
+
+.navbar-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-family: var(--font-heading);
+    font-size: 1.3rem;
+    font-weight: 600;
+    letter-spacing: -0.5px;
+    color: var(--color-bg-dark);
+}
+
+.nav-links {
+    display: flex;
+    gap: 2.5rem;
+}
+
+.nav-links a {
+    font-size: 0.95rem;
+    font-weight: 500;
+    color: var(--color-text-light);
+    position: relative;
+    padding-bottom: 4px;
+}
+
+.nav-links a:hover {
+    color: var(--color-text-main);
+}
+
+.nav-links a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 1px;
+    bottom: 0;
+    left: 0;
+    background-color: var(--color-bg-primary);
+    transition: width var(--transition-fast);
+}
+
+.nav-links a:hover::after {
+    width: 100%;
+}
+
+.btn-nav {
+    border: 1px solid var(--color-bg-primary);
+    padding: 0.6rem 1.6rem;
+    border-radius: 50px;
+    font-weight: 500;
+    color: var(--color-bg-primary);
+    transition: all var(--transition-fast);
+}
+
+.btn-nav:hover {
+    background-color: var(--color-bg-primary);
+    color: var(--color-text-inverse);
+}
+
+/* Mobile Nav Toggle */
+.mobile-menu-btn {
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 30px;
+    height: 20px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    z-index: 1001;
+}
+
+.mobile-menu-btn span {
+    width: 100%;
+    height: 2px;
+    background-color: var(--color-bg-dark);
+    transition: all var(--transition-fast);
+    border-radius: 2px;
+}
+
+.mobile-menu-btn.open span:nth-child(1) {
+    transform: translateY(9px) rotate(45deg);
+}
+
+.mobile-menu-btn.open span:nth-child(2) {
+    opacity: 0;
+}
+
+.mobile-menu-btn.open span:nth-child(3) {
+    transform: translateY(-9px) rotate(-45deg);
+}
+
+.mobile-nav {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 100%;
+    height: 100vh;
+    background-color: var(--color-bg-main);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 999;
+    transition: right var(--transition-fast);
+}
+
+.mobile-nav.open {
+    right: 0;
+}
+
+.mobile-nav-links {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2.5rem;
+}
+
+.mobile-nav-links a {
+    font-family: var(--font-heading);
+    font-size: 2.2rem;
+    color: var(--color-bg-dark);
+}
+
+/* =========================================
+   Hero Section
+   ========================================= */
+.hero {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    padding-top: 100px; /* Accounts for navbar */
+}
+
+.hero-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 5rem;
+    align-items: center;
+}
+
+.hero-text h1 {
+    font-size: 3.8rem;
+    margin-bottom: 1.5rem;
+    color: var(--color-bg-dark);
+}
+
+.hero-text p {
+    font-size: 1.15rem;
+    margin-bottom: 2.5rem;
+    max-width: 90%;
+}
+
+.image-wrapper {
+    position: relative;
+    width: 100%;
+    border-radius: var(--border-radius-lg);
+    overflow: hidden;
+    /* Sombras e cores para criar volume */
+    box-shadow: -20px 20px 0 var(--color-bg-soft);
+}
+
+.image-placeholder {
+    width: 100%;
+    background-color: #E6E1DC; 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--color-text-light);
+    font-size: 0.95rem;
+    letter-spacing: 1px;
+}
+
+.image-hero {
+    height: 550px; /* Reduced to be more rounded */
+    background: linear-gradient(135deg, var(--color-bg-primary) 0%, #A3AFAB 100%);
+}
+
+/* =========================================
+   Morphing Shape Animation
+   ========================================= */
+.morph-shape {
+    border-radius: 40% 60% 70% 30% / 40% 50% 60% 50%;
+    animation: morph 8s ease-in-out infinite both alternate;
+    box-shadow: 0 20px 50px rgba(110, 124, 118, 0.2);
+}
+
+@keyframes morph {
+    0% { border-radius: 40% 60% 70% 30% / 40% 50% 60% 50%; }
+    100% { border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%; }
+}
+
+.morph-text {
+    font-family: var(--font-heading);
+    font-size: 1.8rem;
+    color: var(--color-text-inverse);
+    font-style: italic;
+    text-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+.slogan-text {
+    display: block;
+    font-family: var(--font-heading);
+    font-size: 1.2rem;
+    font-style: italic;
+    color: var(--color-bg-primary);
+    margin-bottom: 0.5rem;
+}
+
+.footer-slogan {
+    font-family: var(--font-heading);
+    font-style: italic;
+    color: var(--color-text-light);
+}
+
+.mt-sm { margin-top: var(--spacing-xs); }
+
+
+.image-about {
+    height: 700px;
+    background: linear-gradient(135deg, #EBE7E2 0%, #DFDAD5 100%);
+}
+
+/* =========================================
+   Para Quem é O Atendimento (Situações)
+   ========================================= */
+.situations-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 1.5rem;
+}
+
+.situation-item {
+    background: var(--color-card-bg);
+    padding: 2.2rem 1.5rem;
+    border-radius: var(--border-radius-md);
+    box-shadow: var(--box-shadow-soft);
+    font-weight: 500;
+    color: var(--color-bg-dark);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+    border-bottom: 3px solid transparent;
+}
+
+.situation-item:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--box-shadow-hover);
+    border-bottom: 3px solid var(--color-bg-primary);
+}
+
+/* =========================================
+   Sobre Mim
+   ========================================= */
+.about-container {
+    display: grid;
+    grid-template-columns: 5fr 6fr;
+    gap: 6rem;
+    align-items: center;
+}
+
+.about-image .image-wrapper {
+    box-shadow: 20px -20px 0 var(--color-bg-primary);
+}
+
+.about-text h2 {
+    font-size: 3.2rem;
+}
+
+.about-text p {
+    font-size: 1.15rem;
+    margin-bottom: 1.5rem;
+}
+
+.about-credentials {
+    padding-top: 2rem;
+    border-top: 1px solid var(--color-border);
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.credential-item strong {
+    display: block;
+    color: var(--color-bg-dark);
+    margin-bottom: 0.3rem;
+    font-family: var(--font-heading);
+    font-size: 1.2rem;
+}
+
+.credential-item p {
+    margin: 0;
+    font-size: 1.05rem;
+}
+
+/* =========================================
+   Diferenciais
+   ========================================= */
+.diff-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 3.5rem 2.5rem;
+}
+
+.diff-item {
+    padding: 1.5rem;
+    background-color: rgba(255, 255, 255, 0.05);
+    border-radius: var(--border-radius-md);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: all var(--transition-fast);
+}
+
+.diff-item:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    transform: translateY(-4px);
+}
+
+.diff-item .icon {
+    font-size: 2.8rem;
+    color: var(--color-accent);
+    margin-bottom: 1.5rem;
+}
+
+.diff-item h4 {
+    font-size: 1.6rem;
+    margin-bottom: 1rem;
+    font-weight: 500;
+}
+
+/* =========================================
+   Abordagem Terapêutica
+   ========================================= */
+.approach-intro {
+    max-width: 850px;
+}
+
+.approach-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2.5rem;
+}
+
+.card {
+    background-color: var(--color-card-bg);
+    border: 1px solid var(--color-border);
+    border-radius: var(--border-radius-md);
+    padding: 3rem 2.5rem;
+    transition: all var(--transition-slow);
+}
+
+.card:hover {
+    box-shadow: var(--box-shadow-hover);
+    transform: translateY(-8px);
+    border-color: var(--color-bg-primary);
+}
+
+.card h3 {
+    font-size: 1.45rem;
+    margin-bottom: 1.25rem;
+    color: var(--color-bg-dark);
+    min-height: 2rem;
+}
+
+/* =========================================
+   Avaliação Neuropsicológica
+   ========================================= */
+.avaliacao {
+    background-color: var(--color-bg-main);
+    border-top: 1px solid var(--color-border);
+}
+
+.aval-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+}
+
+.text-left { text-align: left; }
+
+.aval-intro h3, .aval-indications h3, .aval-process h3, .aval-target h3 {
+    font-size: 1.8rem;
+    margin-bottom: 1.2rem;
+    color: var(--color-bg-dark);
+}
+
+.aval-list {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+.aval-list li {
+    position: relative;
+    padding-left: 1.8rem;
+    margin-bottom: 0.8rem;
+    color: var(--color-text-light);
+    font-size: 1.05rem;
+}
+
+.aval-list li::before {
+    content: '✧';
+    position: absolute;
+    left: 0;
+    color: var(--color-bg-primary);
+    font-size: 1.2rem;
+}
+
+.process-steps {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.5rem;
+    align-items: start;
+}
+
+.step-card {
+    background-color: var(--color-card-bg);
+    padding: 2rem 1.5rem;
+    border-radius: var(--border-radius-md);
+    position: relative;
+    border: 1px solid var(--color-border);
+    transition: transform var(--transition-fast);
+    height: 100%;
+}
+
+.step-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--box-shadow-soft);
+}
+
+.step-num {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: var(--color-bg-primary);
+    color: var(--color-text-inverse);
+    font-family: var(--font-heading);
+    font-size: 1.3rem;
+    margin-bottom: 1rem;
+}
+
+.step-card h4 {
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+    color: var(--color-bg-dark);
+}
+
+.aval-target {
+    background-color: var(--color-card-bg);
+    border-radius: var(--border-radius-lg);
+    padding: 3rem;
+    border: 1px solid var(--color-border);
+    max-width: 900px;
+    margin-left: auto;
+    margin-right: auto;
+    box-shadow: var(--box-shadow-soft);
+}
+
+.aval-target p {
+    font-size: 1.15rem;
+}
+
+.diff-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    justify-content: center;
+}
+
+.diff-tags span {
+    background-color: var(--color-bg-soft);
+    border: 1px solid var(--color-border);
+    color: var(--color-bg-dark);
+    padding: 0.6rem 1.2rem;
+    border-radius: 50px;
+    font-size: 0.95rem;
+    font-weight: 500;
+}
+
+.aval-cta p {
+    font-size: 1.15rem;
+    max-width: 750px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* =========================================
+   Instagram Feed Section
+   ========================================= */
+.instagram {
+    /* Removing border for cleaner look against bg-soft if needed */
+}
+
+.ig-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+    max-width: 1000px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.ig-post {
+    position: relative;
+    display: block;
+    aspect-ratio: 1 / 1; /* Makes the grid squares */
+    border-radius: var(--border-radius-md);
+    overflow: hidden;
+    background-color: #EAE6E1;
+    box-shadow: var(--box-shadow-soft);
+    transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.ig-post:hover {
+    transform: translateY(-8px);
+    box-shadow: var(--box-shadow-hover);
+}
+
+.ig-image-placeholder {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--color-text-light);
+    font-size: 0.95rem;
+    background: linear-gradient(135deg, #F0EBE6 0%, #DFDAD5 100%);
+}
+
+.ig-post img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.ig-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(63, 71, 68, 0.7); /* Based on bg-dark */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--color-text-inverse);
+    opacity: 0;
+    transition: opacity var(--transition-fast);
+}
+
+.ig-post:hover .ig-overlay {
+    opacity: 1;
+}
+
+.btn-primary:hover svg {
+    transform: scale(1.1);
+    transition: transform var(--transition-fast);
+}
+
+/* =========================================
+   Contato
+   ========================================= */
+.contact-card {
+    background-color: var(--color-card-bg);
+    padding: 6rem 4rem;
+    border-radius: var(--border-radius-lg);
+    box-shadow: var(--box-shadow-soft);
+    max-width: 850px;
+    margin: 0 auto;
+    border: 1px solid var(--color-border);
+}
+
+.contact-card h2 {
+    font-size: 2.8rem;
+    margin-bottom: 1.5rem;
+}
+
+.contact-text {
+    font-size: 1.2rem;
+}
+
+.email-link {
+    color: var(--color-bg-primary);
+    font-weight: 500;
+    font-size: 1.1rem;
+}
+
+.email-link:hover {
+    text-decoration: underline;
+}
+
+/* =========================================
+   Footer
+   ========================================= */
+.footer {
+    padding: 4rem 0 2rem 0;
+    background-color: var(--color-bg-dark);
+    color: var(--color-text-inverse);
+}
+
+.footer .logo-text {
+    font-family: var(--font-heading);
+    font-size: 1.8rem;
+    letter-spacing: 1px;
+}
+
+.footer p {
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 0.95rem;
+    margin-bottom: 0.5rem;
+}
+
+/* =========================================
+   Animations
+   ========================================= */
+.fade-in-up {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: opacity 0.8s cubic-bezier(0.25, 1, 0.5, 1), transform 0.8s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.fade-in-up.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.delay-1 { transition-delay: 0.1s; }
+.delay-2 { transition-delay: 0.2s; }
+.delay-3 { transition-delay: 0.3s; }
+.delay-4 { transition-delay: 0.4s; }
+.delay-5 { transition-delay: 0.5s; }
+.delay-6 { transition-delay: 0.6s; }
+
+/* =========================================
+   Responsive Design
+   ========================================= */
+@media (max-width: 1024px) {
+    .container { padding: 0 2rem; }
+    .hero-text h1 { font-size: 3.2rem; }
+    .about-container { gap: 4rem; }
+    .about-text h2 { font-size: 2.8rem; }
+}
+
+@media (max-width: 768px) {
+    .nav-links, .btn-nav { display: none; }
+    .mobile-menu-btn { display: flex; }
+    
+    .hero {
+        padding-top: 120px;
+        min-height: auto;
+    }
+
+    .hero-container {
+        grid-template-columns: 1fr;
+        text-align: center;
+        gap: 4rem;
+    }
+    
+    .hero-text p {
+        margin-left: auto;
+        margin-right: auto;
+    }
+    
+    .hero-image {
+        order: -1;
+        max-width: 500px;
+        margin: 0 auto;
+    }
+    
+    .image-hero {
+        height: 500px;
+    }
+    
+    .image-wrapper {
+        box-shadow: 0 20px 0 var(--color-bg-soft);
+    }
+    
+    .about-container {
+        grid-template-columns: 1fr;
+        text-align: left;
+        gap: 4rem;
+    }
+    
+    .about-image {
+        order: -1;
+        max-width: 500px;
+        margin: 0 auto;
+    }
+
+    .image-about {
+        height: 500px;
+    }
+    
+    .about-image .image-wrapper {
+        box-shadow: 0 20px 0 var(--color-bg-primary);
+    }
+    
+    .section-title, .about-text h2, .contact-card h2 { 
+        font-size: 2.2rem; 
+    }
+    
+    .diff-grid { gap: 2rem; }
+    .situations-grid { gap: 1rem; }
+    
+    .approach-cards {
+        grid-template-columns: 1fr;
+    }
+
+    .aval-content {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+    }
+
+    .aval-target {
+        padding: 2rem 1.5rem;
+    }    
+    
+    .ig-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1rem;
+    }
+
+    .contact-card {
+        padding: 4rem 2rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .container { padding: 0 1.5rem; }
+    .hero-text h1 { font-size: 2.6rem; }
+    .section-title { font-size: 2rem; }
+    .btn-primary { 
+        width: 100%; 
+        justify-content: center; 
+    }
+    .image-hero, .image-about { height: 400px; }
+    
+    .ig-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* =========================================
+   Login Page & Portal
+   ========================================= */
+.login-page {
+    background-color: var(--color-bg-soft);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    padding: 2rem;
+}
+
+.login-container {
+    width: 100%;
+    max-width: 480px;
+}
+
+.login-logo-link {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 2rem;
+    text-decoration: none;
+}
+
+.login-logo {
+    height: 70px;
+    width: auto;
+    object-fit: contain;
+}
+
+.login-card {
+    background-color: var(--color-card-bg);
+    border-radius: var(--border-radius-lg);
+    padding: 3.5rem 3rem;
+    box-shadow: var(--box-shadow-soft);
+    border: 1px solid var(--color-border);
+}
+
+.login-header {
+    margin-bottom: 2.5rem;
+}
+
+.login-header h2 {
+    font-size: 2rem;
+    color: var(--color-bg-dark);
+    margin-bottom: 1rem;
+}
+
+.login-header p {
+    font-size: 1.05rem;
+    line-height: 1.5;
+}
+
+.login-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.form-group label {
+    font-size: 0.95rem;
+    font-weight: 500;
+    color: var(--color-bg-dark);
+}
+
+.password-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.forgot-password {
+    font-size: 0.85rem;
+    color: var(--color-bg-primary);
+    text-decoration: none;
+}
+
+.forgot-password:hover {
+    text-decoration: underline;
+}
+
+.form-input {
+    padding: 1rem 1.2rem;
+    border: 1px solid var(--color-border);
+    border-radius: var(--border-radius-sm);
+    font-family: var(--font-body);
+    font-size: 1rem;
+    color: var(--color-bg-dark);
+    background-color: #F8F6F4;
+    transition: all var(--transition-fast);
+}
+
+.form-input:focus {
+    outline: none;
+    border-color: var(--color-bg-primary);
+    background-color: #FFFFFF;
+    box-shadow: 0 0 0 3px rgba(110, 124, 118, 0.1);
+}
+
+.form-input::placeholder {
+    color: #A09A92;
+}
+
+.btn-login {
+    width: 100%;
+    justify-content: center;
+    margin-top: 1rem;
+    padding: 1.2rem;
+    font-size: 1.1rem;
+}
+
+.security-notice {
+    font-size: 0.85rem;
+    color: var(--color-text-light);
+    margin: 0;
+}
+
+.login-back {
+    margin-top: 2rem;
+}
+
+.back-link {
+    display: inline-flex;
+    align-items: center;
+    color: var(--color-text-light);
+    font-size: 0.95rem;
+    font-weight: 500;
+    transition: color var(--transition-fast);
+}
+
+.back-link:hover {
+    color: var(--color-bg-dark);
+}
+
+@media (max-width: 480px) {
+    .login-card {
+        padding: 2.5rem 1.5rem;
+    }
+    
+    .login-header h2 {
+        font-size: 1.8rem;
+    }
+}
+
+/* =========================================
+   Funil de Serviços
+   ========================================= */
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 3rem;
+    margin-top: 2rem;
+}
+.funnel-card {
+    background: #FFF;
+    padding: 3rem;
+    border-radius: var(--border-radius-lg);
+    box-shadow: var(--box-shadow-soft);
+    border: 1px solid var(--color-border);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.funnel-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.05);
+}
+.funnel-card h3 {
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+    color: var(--color-bg-dark);
+}
+.funnel-icon {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+}
+
+/* =========================================
+   FAQ Section
+   ========================================= */
+.faq-container {
+    max-width: 800px;
+    margin: 0 auto;
+}
+.faq-item {
+    border-bottom: 1px solid var(--color-border);
+}
+.faq-question {
+    width: 100%;
+    text-align: left;
+    padding: 1.5rem 0;
+    font-size: 1.1rem;
+    font-weight: 500;
+    color: var(--color-bg-dark);
+    background: none;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: color 0.3s;
+}
+.faq-question:hover {
+    color: var(--color-bg-primary);
+}
+.faq-icon {
+    font-size: 1.5rem;
+    font-weight: 300;
+    transition: transform 0.3s;
+}
+.faq-item.active .faq-icon {
+    transform: rotate(45deg);
+}
+.faq-answer {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+}
+.faq-answer p {
+    padding-bottom: 1.5rem;
+    color: var(--color-text-body);
+}
+
+/* =========================================
+   Floating WhatsApp Button
+   ========================================= */
+.floating-whatsapp {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 60px;
+    height: 60px;
+    background-color: #25D366;
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+    z-index: 1000;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+.floating-whatsapp:hover {
+    transform: scale(1.1);
+    box-shadow: 0 6px 20px rgba(0,0,0,0.2);
+}
+@media (max-width: 768px) {
+    .floating-whatsapp {
+        bottom: 20px;
+        right: 20px;
+        width: 50px;
+        height: 50px;
+    }
+    .floating-whatsapp svg {
+        width: 24px;
+        height: 24px;
+    }
+}

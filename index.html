@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thiago Soares Campoli | Psicologia Clínica</title>
+    <meta name="description" content="Atendimento psicológico clínico. Um espaço seguro focado no acolhimento, autoconhecimento e desenvolvimento emocional.">
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="navbar">
+        <div class="container navbar-content">
+            <a href="#inicio" class="logo">Thiago Soares Campoli</a>
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="#inicio">Início</a></li>
+                    <li><a href="#sobre">Sobre mim</a></li>
+                    <li><a href="#abordagem">Abordagem</a></li>
+                    <li><a href="#ajuda">Como ajudo</a></li>
+                    <li><a href="#avaliacao">Avaliação</a></li>
+                    <li><a href="agendamento.html" class="nav-highlight">Agendamento</a></li>
+                    <li><a href="login.html" class="nav-highlight">Área do Cliente</a></li>
+                </ul>
+            </nav>
+            <a href="#contato" class="btn-nav">Contato</a>
+            <!-- Mobile Menu Toggle -->
+            <button class="mobile-menu-btn" aria-label="Abrir menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </header>
+
+    <!-- Mobile Nav -->
+    <div class="mobile-nav">
+        <ul class="mobile-nav-links">
+            <li><a href="#inicio">Início</a></li>
+            <li><a href="#sobre">Sobre mim</a></li>
+            <li><a href="#abordagem">Abordagem</a></li>
+            <li><a href="#ajuda">Como ajudo</a></li>
+            <li><a href="#avaliacao">Avaliação</a></li>
+            <li><a href="agendamento.html">Agendamento</a></li>
+            <li><a href="login.html" style="color: var(--color-bg-primary);">Área do Cliente</a></li>
+            <li><a href="#contato">Contato</a></li>
+        </ul>
+    </div>
+
+    <main>
+        <!-- 1. Hero Section -->
+        <section id="inicio" class="hero">
+            <div class="container hero-container">
+                <div class="hero-text fade-in-up">
+                    <span class="slogan-text">Ser humano é simples.</span>
+                    <h1>Um espaço seguro para você se reencontrar.</h1>
+                    <p>Se você está cansado de apenas "aguentar" o peso da ansiedade, da autocobrança e da sobrecarga, a terapia é o primeiro passo para a mudança. Um acompanhamento focado no seu desenvolvimento psicológico, proporcionando mais clareza, leveza e direção para a sua vida.</p>
+                    <a href="#contato" class="btn-primary">Agende seu atendimento</a>
+                </div>
+                <div class="hero-image fade-in-up delay-1">
+                    <div class="image-placeholder image-hero morph-shape">
+                        <span class="morph-text">Ser humano é simples.</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 1.5 Serviços (Funil) -->
+        <section id="servicos" class="services bg-main text-center" style="padding-top: 0;">
+            <div class="container fade-in-up">
+                <div class="services-grid mt-md">
+                    <div class="service-card funnel-card">
+                        <div class="funnel-icon" style="color: var(--color-bg-primary);">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg>
+                        </div>
+                        <h3>Psicoterapia</h3>
+                        <p>Um espaço de fala, escuta e desenvolvimento para tratar ansiedade, estresse e conflitos, promovendo saúde mental no dia a dia.</p>
+                        <a href="#abordagem" class="btn-primary" style="margin-top: 15px;">Saber mais sobre Terapia</a>
+                    </div>
+                    <div class="service-card funnel-card">
+                        <div class="funnel-icon" style="color: var(--color-bg-dark);">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9.5 2A2.5 2.5 0 0 1 12 4.5v15a2.5 2.5 0 0 1-4.96.44 2.5 2.5 0 0 1-2.96-3.08 3 3 0 0 1-.34-5.58 2.5 2.5 0 0 1 1.32-4.24 2.5 2.5 0 0 1 1.98-3A2.5 2.5 0 0 1 9.5 2Z"></path><path d="M14.5 2A2.5 2.5 0 0 0 12 4.5v15a2.5 2.5 0 0 0 4.96.44 2.5 2.5 0 0 0 2.96-3.08 3 3 0 0 0 .34-5.58 2.5 2.5 0 0 0-1.32-4.24 2.5 2.5 0 0 0-1.98-3A2.5 2.5 0 0 0 14.5 2Z"></path></svg>
+                        </div>
+                        <h3>Avaliação Neuropsicológica</h3>
+                        <p>Investigação profunda das funções cognitivas para auxiliar em diagnósticos (TDAH, Autismo, etc) e direcionar tratamentos.</p>
+                        <a href="#avaliacao" class="btn-primary" style="margin-top: 15px; background-color: var(--color-bg-dark);">Saber mais sobre Avaliação</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 4. Para quem é o atendimento -->
+        <section id="ajuda" class="situations bg-soft">
+            <div class="container text-center fade-in-up">
+                <h2 class="section-title">Como a terapia pode ajudar</h2>
+                <p class="section-subtitle">Situações reais em que posso te auxiliar a encontrar mais clareza e bem-estar.</p>
+                
+                <div class="situations-grid mt-lg">
+                    <div class="situation-item fade-in-up delay-1">
+                        Ansiedade e medos constantes
+                    </div>
+                    <div class="situation-item fade-in-up delay-1">
+                        Estresse e sobrecarga emocional
+                    </div>
+                    <div class="situation-item fade-in-up delay-2">
+                        Autocobrança e perfeccionismo
+                    </div>
+                    <div class="situation-item fade-in-up delay-2">
+                        Dificuldades de autoestima e insegurança
+                    </div>
+                    <div class="situation-item fade-in-up delay-3">
+                        Conflitos nos relacionamentos
+                    </div>
+                    <div class="situation-item fade-in-up delay-3">
+                        Dificuldade em lidar com emoções
+                    </div>
+                    <div class="situation-item fade-in-up delay-4">
+                        Sensação de estar perdido ou desconectado de si mesmo
+                    </div>
+                    <div class="situation-item fade-in-up delay-4">
+                        Necessidade de autoconhecimento e desenvolvimento pessoal
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 2. Sobre Mim -->
+        <section id="sobre" class="about">
+            <div class="container about-container">
+                <div class="about-image fade-in-up">
+                    <div class="image-wrapper">
+                        <div class="image-placeholder image-about">
+                            <span>[INSERIR FOTO PROFISSIONAL AQUI]</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="about-text fade-in-up delay-1">
+                    <h2 class="section-title">Sobre mim</h2>
+                    <p>Valorizo intensamente a ciência e as intervenções baseadas em evidências, mas entendo que o coração da terapia é a relação humana, a sua experiência subjetiva e as necessidades do seu momento de vida. Aqui, você encontra um espaço de escuta qualificada para compreensão autêntica, construção de novos caminhos e mudança real.</p>
+                    
+                    <div class="about-credentials mt-md">
+                        <div class="credential-item">
+                            <h3 style="font-size: 1.2rem; margin-bottom: 0.8rem; color: var(--color-bg-dark);">Formação e Especializações</h3>
+                            <p style="margin-bottom: 1rem; line-height: 1.6;">Graduado em Psicologia, Especialista em Estatística com Ênfase em Pesquisa Quantitativa, Mestre em Análise do Comportamento pela Universidade Estadual de Londrina (UEL) e Especialista em Neuropsicologia pelo Instituto de Psiquiatria da Universidade de São Paulo (HCUSP).</p>
+                            
+                            <strong style="display: block; margin-bottom: 0.5rem;">Formação em:</strong>
+                            <ul style="margin-left: 1.5rem; line-height: 1.6; color: var(--color-text-body);">
+                                <li>Nivel 1 em Radically Open Dialectical Behavior Therapy (RO-DBT)</li>
+                                <li>Introdução ao Bom Manejo Clinico (GPM; Instituto de Psiquiatria da USP)</li>
+                                <li>Treinador de Grupo de Habilidades DBT (Vincular)</li>
+                                <li>Psicologia Baseada em Processos (PBP; Diadelab)</li>
+                                <li>Psicometria e Análise de Dados (Psicometria Online Academy)</li>
+                                <li>Interpretação de Artigos Científicos (Igor Eckert)</li>
+                                <li>Terapia de Aceitação e Compromisso (ACT; Escola de Educação Permanente do Instituto de Psiquiatria da USP)</li>
+                                <li>Psicologia Baseada em Evidências (Clube de Psicologia Baseada em Evidências; Jan Leonardi)</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 5. Diferenciais -->
+        <section class="differentials bg-primary text-inverse">
+            <div class="container text-center fade-in-up">
+                <h2 class="section-title">O que você encontra aqui</h2>
+                <div class="diff-grid mt-lg">
+                    <div class="diff-item fade-in-up delay-1">
+                        <div class="icon">✧</div>
+                        <h4>Escuta acolhedora</h4>
+                        <p>Um ambiente seguro, ético e completamente livre de julgamentos.</p>
+                    </div>
+                    <div class="diff-item fade-in-up delay-2">
+                        <div class="icon">✦</div>
+                        <h4>Baseado em ciência</h4>
+                        <p>Intervenções validadas e práticas terapêuticas com sólido respaldo científico.</p>
+                    </div>
+                    <div class="diff-item fade-in-up delay-3">
+                        <div class="icon">✧</div>
+                        <h4>Processo individualizado</h4>
+                        <p>Um olhar atento e único para a sua história, respeitando seu tempo e sem fórmulas prontas.</p>
+                    </div>
+                    <div class="diff-item fade-in-up delay-4">
+                        <div class="icon">✦</div>
+                        <h4>Técnica e sensibilidade</h4>
+                        <p>A união do conhecimento clínico avançado com o acolhimento humano exigido no processo.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 3. Abordagem terapêutica -->
+        <section id="abordagem" class="approach">
+            <div class="container fade-in-up">
+                <div class="approach-header text-center">
+                    <h2 class="section-title">Como trabalho</h2>
+                    <p class="section-subtitle approach-intro">Meu trabalho clínico é fundamentado em abordagens psicológicas com respaldo científico. Elas são escolhidas e integradas com cuidado, sempre respeitando a necessidade e o momento de cada pessoa.</p>
+                </div>
+
+                <div class="approach-cards mt-lg">
+                    <div class="card fade-in-up delay-1">
+                        <h3>Terapia de Aceitação e Compromisso (ACT)</h3>
+                        <p>Ajuda você a lidar melhor com pensamentos e emoções difíceis, reduzindo a luta interna, ao mesmo tempo em que o auxilia a construir uma vida mais alinhada com o que é verdadeiramente importante (seus valores).</p>
+                    </div>
+                    <div class="card fade-in-up delay-2">
+                        <h3>Terapia Focada na Compaixão (CFT)</h3>
+                        <p>Trabalha a relação que você tem consigo mesmo. É focada especialmente em casos de autocobrança excessiva, vergonha, crítica interna severa e na dificuldade de se tratar com gentileza e acolhimento.</p>
+                    </div>
+                    <div class="card fade-in-up delay-3">
+                        <h3>Terapia Comportamental Dialética (DBT)</h3>
+                        <p>Focada no desenvolvimento de habilidades práticas para lidar com emoções muito intensas, agir com menos impulsividade, melhorar relacionamentos interpessoais difíceis e reduzir consideravelmente o sofrimento emocional.</p>
+                    </div>
+                    <div class="card fade-in-up delay-4">
+                        <h3>Terapia Cognitivo-Comportamental (TCC)</h3>
+                        <p>Busca identificar os padrões de pensamento, emoção e comportamento que mantêm o seu sofrimento atual, ajudando você a construir respostas e atitudes mais saudáveis, flexíveis e funcionais diante da vida.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 6. Avaliação Neuropsicológica -->
+        <section id="avaliacao" class="avaliacao text-center">
+            <div class="container fade-in-up">
+                <h2 class="section-title">Avaliação Neuropsicológica</h2>
+                <p class="section-subtitle">Compreenda melhor o funcionamento cognitivo, emocional e comportamental por meio de uma avaliação estruturada e baseada em ciência.</p>
+                
+                <div class="aval-content mt-lg">
+                    <div class="aval-intro text-left fade-in-up delay-1">
+                        <h3>O que é a avaliação neuropsicológica?</h3>
+                        <p>É um processo clínico estruturado que utiliza entrevistas, testes psicológicos padronizados e análise técnica para compreender diferentes aspectos do funcionamento psicológico.</p>
+                        <p>A avaliação investiga áreas como atenção, memória, funções executivas, linguagem, habilidades de aprendizagem, raciocínio e o próprio funcionamento emocional e comportamental.</p>
+                        <p>O foco é traçar de maneira respeitosa o perfil cognitivo da pessoa, identificando e elucidando claramentetanto as suas dificuldades quanto as suas potencialidades.</p>
+                    </div>
+
+                    <div class="aval-indications text-left fade-in-up delay-2">
+                        <h3>Quando é indicada?</h3>
+                        <ul class="aval-list">
+                            <li>Suspeita de TDAH</li>
+                            <li>Suspeita de Autismo</li>
+                            <li>Dificuldades de aprendizagem</li>
+                            <li>Dificuldades de atenção e concentração</li>
+                            <li>Dificuldades de memória</li>
+                            <li>Investigação do funcionamento cognitivo</li>
+                            <li>Apoio para decisões escolares ou decisões clínicas</li>
+                            <li>Compreensão aprofundada de dificuldades emocionais</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="aval-process mt-xl fade-in-up delay-3">
+                    <h3>Como funciona o processo?</h3>
+                    <div class="process-steps mt-md">
+                        <div class="step-card">
+                            <span class="step-num">1</span>
+                            <h4>Entrevista inicial</h4>
+                            <p>Compreensão humana da sua história, das dificuldades relatadas e do contexto de vida.</p>
+                        </div>
+                        <div class="step-card">
+                            <span class="step-num">2</span>
+                            <h4>Aplicação de testes</h4>
+                            <p>Utilização cuidadosa de testes e instrumentos padronizados e reconhecidos cientificamente.</p>
+                        </div>
+                        <div class="step-card">
+                            <span class="step-num">3</span>
+                            <h4>Análise integrada</h4>
+                            <p>Integração das informações obtidas nas entrevistas, observações e na testagem.</p>
+                        </div>
+                        <div class="step-card">
+                            <span class="step-num">4</span>
+                            <h4>Laudo detalhado</h4>
+                            <p>Elaboração de documento técnico minucioso com a descrição estruturada dos resultados.</p>
+                        </div>
+                        <div class="step-card">
+                            <span class="step-num">5</span>
+                            <h4>Devolutiva</h4>
+                            <p>Momento reservado para a explicação clara dos achados e para o repasse de orientações assertivas.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="aval-target mt-xl fade-in-up delay-4">
+                    <h3>Para quem realizamos?</h3>
+                    <p>O processo é realizado e totalmente adaptado para <strong>Crianças, Adolescentes, Adultos e Idosos</strong>, respeitando a idade, o tempo e as necessidades específicas de cada indivíduo ao longo das sessões.</p>
+                    
+                    <div class="diff-tags mt-lg">
+                        <span>Instrumentos reconhecidos cientificamente</span>
+                        <span>Análise técnica e individualizada</span>
+                        <span>Comunicação transparente dos resultados</span>
+                        <span>Orientação para família e escola</span>
+                    </div>
+                </div>
+
+                <div class="aval-cta mt-xl fade-in-up delay-5">
+                    <p class="mb-md">Se você deseja compreender melhor o funcionamento cognitivo ou investigar dificuldades específicas, entre em contato para saber mais sobre o processo e agendar uma avaliação.</p>
+                    <a href="https://wa.me/[INSERIR NÚMERO]" target="_blank" class="btn-primary btn-large">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right: 8px;"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+                        Agendar Avaliação
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Instagram Section -->
+        <section id="instagram" class="instagram text-center bg-soft">
+            <div class="container fade-in-up">
+                <h2 class="section-title">Conteúdos e reflexões</h2>
+                <p class="section-subtitle">Aqui compartilho reflexões, informações e conteúdos sobre psicologia, emoções, comportamento e desenvolvimento pessoal.</p>
+                
+                <div class="ig-grid mt-lg fade-in-up delay-1">
+                    <!-- Placeholder Posts (6 items) -->
+                    <!-- In a real scenario, this could be replaced by an embed widget like SnapWidget or Elfsight -->
+                    <a href="https://instagram.com/[INSERIR PERFIL DO INSTAGRAM]" target="_blank" class="ig-post">
+                        <div class="ig-image-placeholder"><span>Post</span></div>
+                        <div class="ig-overlay">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+                        </div>
+                    </a>
+                    <a href="https://instagram.com/[INSERIR PERFIL DO INSTAGRAM]" target="_blank" class="ig-post">
+                        <div class="ig-image-placeholder"><span>Post</span></div>
+                        <div class="ig-overlay">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+                        </div>
+                    </a>
+                    <a href="https://instagram.com/[INSERIR PERFIL DO INSTAGRAM]" target="_blank" class="ig-post">
+                        <div class="ig-image-placeholder"><span>Post</span></div>
+                        <div class="ig-overlay">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+                        </div>
+                    </a>
+                    <a href="https://instagram.com/[INSERIR PERFIL DO INSTAGRAM]" target="_blank" class="ig-post">
+                        <div class="ig-image-placeholder"><span>Post</span></div>
+                        <div class="ig-overlay">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+                        </div>
+                    </a>
+                    <a href="https://instagram.com/[INSERIR PERFIL DO INSTAGRAM]" target="_blank" class="ig-post">
+                        <div class="ig-image-placeholder"><span>Post</span></div>
+                        <div class="ig-overlay">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+                        </div>
+                    </a>
+                    <a href="https://instagram.com/[INSERIR PERFIL DO INSTAGRAM]" target="_blank" class="ig-post">
+                        <div class="ig-image-placeholder"><span>Post</span></div>
+                        <div class="ig-overlay">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="mt-lg fade-in-up delay-2">
+                    <a href="https://instagram.com/[INSERIR PERFIL DO INSTAGRAM]" target="_blank" class="btn-primary" style="background-color: transparent; color: var(--color-bg-dark); border: 1px solid var(--color-bg-dark); box-shadow: none;">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right: 8px;"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+                        Acompanhar no Instagram
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- 7. Banner Área do Cliente -->
+        <section class="client-area-banner text-center" style="padding: 4rem 0; border-top: 1px solid var(--color-border); border-bottom: 1px solid var(--color-border);">
+            <div class="container fade-in-up">
+                <h2 class="section-title" style="margin-bottom: 0.5rem; font-size: 1.8rem;">Área do Cliente</h2>
+                <p style="font-size: 1.1rem; color: var(--color-bg-dark); max-width: 600px; margin: 0 auto 1.5rem auto;">Acesse sua área exclusiva com materiais e vídeos disponíveis para você.</p>
+                <a href="login.html" class="btn-primary">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right: 8px;"><path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4"></path><polyline points="10 17 15 12 10 7"></polyline><line x1="15" y1="12" x2="3" y2="12"></line></svg>
+                    Acessar Plataforma
+                </a>
+            </div>
+        </section>
+
+        <!-- FAQ -->
+        <section id="faq" class="faq bg-soft">
+            <div class="container fade-in-up">
+                <h2 class="section-title text-center">Dúvidas Frequentes</h2>
+                <p class="section-subtitle text-center">Respostas para as perguntas mais comuns antes de iniciar o processo.</p>
+                
+                <div class="faq-container mt-lg">
+                    <div class="faq-item">
+                        <button class="faq-question">Como sei se preciso de terapia? <span class="faq-icon">+</span></button>
+                        <div class="faq-answer">
+                            <p>Não é preciso estar no limite do sofrimento para buscar terapia. Se você sente que a ansiedade, os conflitos nos relacionamentos ou a dificuldade de lidar com emoções estão prejudicando sua rotina, o processo psicoterapêutico é para você.</p>
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <button class="faq-question">Como funciona a primeira sessão? <span class="faq-icon">+</span></button>
+                        <div class="faq-answer">
+                            <p>A primeira sessão é um momento de acolhimento e escuta. Serve para eu entender sua história, suas queixas principais e também para você conhecer o meu estilo de trabalho. Não há pressão, é um bate-papo estruturado e seguro.</p>
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <button class="faq-question">Quanto tempo dura o processo de Avaliação Neuropsicológica? <span class="faq-icon">+</span></button>
+                        <div class="faq-answer">
+                            <p>O processo completo de avaliação neuropsicológica geralmente leva entre 5 a 8 sessões, dependendo da demanda e do ritmo do paciente. Envolve a entrevista inicial, as sessões de testagem e, por fim, a sessão de devolutiva com o laudo.</p>
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <button class="faq-question">Você atende por convênio/plano de saúde? <span class="faq-icon">+</span></button>
+                        <div class="faq-answer">
+                            <p>Os atendimentos são exclusivamente particulares. No entanto, emito recibo com CRP para que você possa solicitar o reembolso junto ao seu plano de saúde, caso ele ofereça essa modalidade.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 8. Contato -->
+        <section id="contato" class="contact">
+            <div class="container fade-in-up">
+                <div class="contact-card text-center">
+                    <h2 class="section-title">Vamos iniciar esse processo?</h2>
+                    <p class="contact-text">Se você sente que este pode ser um momento importante para cuidar de si, entre em contato. Será um prazer te acolher, tirar suas dúvidas e dar o primeiro passo junto com você.</p>
+                    
+                    <div class="contact-actions mt-lg">
+                        <a href="https://wa.me/5543991730819" target="_blank" class="btn-primary btn-large">
+                            <!-- Ícone do WhatsApp -->
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right: 8px;"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+                            Falar no WhatsApp
+                        </a>
+                        
+                        <div class="contact-details mt-md">
+                            <p><strong>WhatsApp:</strong> (43) 99173-0819</p>
+                            <p><strong>E-mail:</strong> <a href="mailto:psi.thiagocampoli@gmail.com" class="email-link">psi.thiagocampoli@gmail.com</a></p>
+                            <p><strong>Endereço:</strong> Rua Dom Pedro II, 320 - Jardim Presidente</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer text-center">
+        <div class="container">
+            <div class="footer-logo mb-md">
+                <span class="logo-text">Thiago Soares Campoli</span>
+                <p class="footer-slogan mt-sm">Ser humano é simples.</p>
+            </div>
+            <p>&copy; 2026 Thiago Soares Campoli. Todos os direitos reservados.</p>
+            <p>Psicologia Clínica - CRP [CRP]</p>
+        </div>
+    </footer>
+
+    <!-- Floating WhatsApp Button -->
+    <a href="https://wa.me/5543991730819" target="_blank" class="floating-whatsapp" aria-label="Falar no WhatsApp">
+        <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+    </a>
+
+    <script src="script.js"></script>
+</body>
+</html>

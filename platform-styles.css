@@ -1,0 +1,481 @@
+/* platform-styles.css */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+:root {
+    --bg-base: #141414;
+    --bg-nav: rgba(20, 20, 20, 0.9);
+    --bg-card: #181818;
+    --color-text-main: #E5E5E5;
+    --color-text-muted: #808080;
+    --color-accent: #E50914; /* Netflix red equivalent, or we can use the brand's Sage #6E7C76 later. Let's stick to a premium EAD color, maybe a warm Gold #D4AF37 or Sage #6E7C76 */
+    --color-accent: #788C83; /* A stylized sage green that pops on dark backgrounds */
+    --color-accent-hover: #5A6A62;
+    --border-radius-sm: 4px;
+    --border-radius-md: 8px;
+    --transition-fast: 0.2s ease;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Inter', sans-serif;
+}
+
+body {
+    background-color: var(--bg-base);
+    color: var(--color-text-main);
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+}
+
+/* =========================================
+   Navbar (Global EAD)
+   ========================================= */
+.ead-navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 70px;
+    padding: 0 4%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: linear-gradient(to bottom, rgba(0,0,0,0.8) 0%, rgba(20,20,20,0) 100%);
+    z-index: 1000;
+    transition: background-color var(--transition-fast);
+}
+
+.ead-navbar.scrolled {
+    background-color: var(--bg-nav);
+}
+
+.ead-nav-left {
+    display: flex;
+    align-items: center;
+    gap: 3rem;
+}
+
+.ead-logo img {
+    height: 35px;
+    filter: brightness(0) invert(1); /* Makes the black logo white */
+}
+
+.ead-menu {
+    display: flex;
+    gap: 1.5rem;
+    list-style: none;
+}
+
+.ead-menu a {
+    position: relative;
+    color: var(--color-text-main);
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 500;
+    transition: color var(--transition-fast);
+}
+
+.ead-menu a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: -6px;
+    left: 0;
+    background-color: var(--color-accent);
+    transition: width 0.3s ease;
+}
+
+.ead-menu a:hover, .ead-menu a.active {
+    color: #FFF;
+    font-weight: 600;
+}
+
+.ead-menu a:hover::after, .ead-menu a.active::after {
+    width: 100%;
+}
+
+.ead-nav-right {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+.nav-icon {
+    color: var(--color-text-main);
+    width: 24px;
+    height: 24px;
+    cursor: pointer;
+}
+
+.profile-avatar {
+    width: 32px;
+    height: 32px;
+    border-radius: 4px;
+    background-color: var(--color-accent);
+    cursor: pointer;
+    transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.profile-avatar:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 15px rgba(120, 140, 131, 0.6);
+}
+
+/* =========================================
+   Hero / Banner
+   ========================================= */
+.ead-hero {
+    position: relative;
+    height: 85vh;
+    width: 100%;
+    background-image: url('https://images.unsplash.com/photo-1493661284688-668045f4af45?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
+    background-size: cover;
+    background-position: center 20%;
+    display: flex;
+    align-items: center;
+    padding: 0 4%;
+}
+
+/* Netflix-style vignette overlay */
+.hero-vignette {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(77deg, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0) 85%);
+}
+
+.hero-vignette-bottom {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 150px;
+    background: linear-gradient(to top, var(--bg-base) 0%, rgba(20,20,20,0) 100%);
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+    max-width: 600px;
+    margin-top: 10vh;
+}
+
+.hero-title {
+    font-size: 3.5rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    line-height: 1.1;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+}
+
+.hero-desc {
+    font-size: 1.2rem;
+    margin-bottom: 1.5rem;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+    line-height: 1.4;
+}
+
+.hero-buttons {
+    display: flex;
+    gap: 1rem;
+}
+
+.btn-play, .btn-info {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.6rem 1.8rem;
+    font-size: 1.1rem;
+    font-weight: 600;
+    border-radius: var(--border-radius-sm);
+    cursor: pointer;
+    text-decoration: none;
+    border: none;
+    transition: background-color var(--transition-fast), transform var(--transition-fast);
+}
+
+.btn-play {
+    background-color: var(--color-text-main);
+    color: #000;
+}
+
+.btn-play:hover {
+    background-color: #fff;
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(255, 255, 255, 0.2);
+}
+
+.btn-info {
+    background-color: rgba(109, 109, 110, 0.7);
+    color: var(--color-text-main);
+}
+
+.btn-info:hover {
+    background-color: rgba(109, 109, 110, 0.5);
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4);
+}
+
+/* =========================================
+   Sliders / Rows
+   ========================================= */
+.ead-main {
+    padding: 0 4% 4rem 4%;
+    position: relative;
+    z-index: 3;
+    margin-top: -80px; /* Pull rows slightly over the banner */
+}
+
+.slider-row {
+    margin-bottom: 3rem;
+}
+
+.slider-title {
+    font-size: 1.4rem;
+    font-weight: 600;
+    margin-bottom: 0.8rem;
+    margin-left: 0.2rem;
+}
+
+.slider-container {
+    display: flex;
+    gap: 0.5rem;
+    overflow-x: auto;
+    padding: 1rem 0;
+    scrollbar-width: none; /* Firefox */
+}
+
+.slider-container::-webkit-scrollbar {
+    display: none; /* Chrome/Safari */
+}
+
+.course-card {
+    flex: 0 0 auto;
+    width: 280px;
+    aspect-ratio: 16 / 9;
+    border-radius: var(--border-radius-sm);
+    background-color: var(--bg-card);
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+    transition: transform 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94), box-shadow 0.35s ease;
+}
+
+.course-card:hover {
+    transform: scale(1.08) translateY(-5px);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.8), 0 0 10px rgba(255, 255, 255, 0.05);
+    z-index: 10;
+}
+
+.course-thumb {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.35s ease;
+}
+
+.course-card:hover .course-thumb {
+    transform: scale(1.03);
+}
+
+.course-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 2rem 1rem 1rem 1rem;
+    background: linear-gradient(to top, rgba(0,0,0,0.95) 0%, rgba(0,0,0,0) 100%);
+    opacity: 0;
+    transform: translateY(10px);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.course-card:hover .course-overlay {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.course-overlay-title {
+    font-size: 1rem;
+    font-weight: 600;
+}
+
+/* =========================================
+   Player Page Specifics (plataforma-curso.html)
+   ========================================= */
+.player-layout {
+    margin-top: 70px; /* Below navbar */
+}
+
+.video-container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    aspect-ratio: 16/9;
+    background-color: #000;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Fake player play icon */
+.fake-play {
+    width: 80px;
+    height: 80px;
+    background-color: rgba(0,0,0,0.6);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid var(--color-text-main);
+    cursor: pointer;
+    transition: transform var(--transition-fast);
+}
+
+.fake-play:hover {
+    transform: scale(1.1);
+    background-color: var(--color-accent);
+    border-color: var(--color-accent);
+}
+
+.course-content-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 3rem;
+    max-width: 1200px;
+    margin: 2rem auto;
+    padding: 0 4%;
+}
+
+.course-header h1 {
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+}
+
+.course-meta {
+    color: var(--color-text-muted);
+    font-size: 0.95rem;
+    margin-bottom: 1.5rem;
+}
+
+.course-meta span {
+    margin-right: 1rem;
+}
+
+.course-desc {
+    line-height: 1.6;
+    color: #D2D2D2;
+    margin-bottom: 2rem;
+}
+
+.course-tabs {
+    display: flex;
+    gap: 2rem;
+    border-bottom: 1px solid #333;
+    margin-bottom: 1.5rem;
+}
+
+.tab {
+    padding: 0.5rem 0;
+    color: var(--color-text-muted);
+    font-weight: 500;
+    cursor: pointer;
+    border-bottom: 3px solid transparent;
+}
+
+.tab.active {
+    color: var(--color-text-main);
+    border-color: var(--color-accent);
+}
+
+.materials-list {
+    list-style: none;
+}
+
+.material-item {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem;
+    background-color: var(--bg-card);
+    border-radius: var(--border-radius-md);
+    margin-bottom: 0.5rem;
+    text-decoration: none;
+    color: var(--color-text-main);
+    border: 1px solid transparent;
+    transition: border var(--transition-fast);
+}
+
+.material-item:hover {
+    border-color: #444;
+}
+
+/* Sidebar Episodes */
+.episodes-panel {
+    background-color: var(--bg-card);
+    border-radius: var(--border-radius-md);
+    padding: 1.5rem;
+    height: fit-content;
+}
+
+.episodes-title {
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid #333;
+}
+
+.episode {
+    display: flex;
+    gap: 1rem;
+    padding: 1rem 0;
+    border-bottom: 1px solid #222;
+    cursor: pointer;
+    transition: background-color var(--transition-fast);
+}
+
+.episode:hover {
+    background-color: rgba(255,255,255,0.05);
+}
+
+.episode.active {
+    background-color: rgba(255,255,255,0.05);
+}
+
+.episode-num {
+    font-size: 1.2rem;
+    color: var(--color-text-muted);
+    font-weight: 600;
+    width: 20px;
+}
+
+.episode-info h4 {
+    font-size: 0.95rem;
+    margin-bottom: 0.2rem;
+}
+
+.episode-info p {
+    font-size: 0.8rem;
+    color: var(--color-text-muted);
+}
+
+@media (max-width: 768px) {
+    .course-content-grid {
+        grid-template-columns: 1fr;
+    }
+    .hero-title {
+        font-size: 2.2rem;
+    }
+    .ead-nav-left {
+        gap: 1rem;
+    }
+    .ead-menu {
+        display: none;
+    }
+}

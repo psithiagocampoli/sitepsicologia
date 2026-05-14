@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - Plataforma de Vídeos | Thiago Soares Campoli</title>
+    <meta name="description" content="Acesso exclusivo para pacientes a conteúdos, vídeos e materiais de acompanhamento psicológico.">
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="login-page">
+    
+    <div class="login-container fade-in-up">
+        <a href="index.html" class="login-logo-link">
+            <img src="assets/logo.png" alt="Logo Thiago Soares Campoli" class="login-logo" onerror="this.style.display='none'; document.getElementById('logo-text-login').style.display='block';">
+            <span id="logo-text-login" style="display: none;" class="logo">Thiago Soares Campoli</span>
+        </a>
+
+        <div class="login-card">
+            <div class="login-header text-center">
+                <h2>Bem-vindo à sua área exclusiva</h2>
+                <p>Neste espaço, você poderá acessar conteúdos em vídeo, materiais e recursos exclusivos disponibilizados para acompanhamento e aprofundamento do seu processo.</p>
+            </div>
+
+            <form class="login-form" action="#" method="POST" onsubmit="event.preventDefault(); window.location.href='plataforma.html';">
+                <div class="form-group">
+                    <label for="email">E-mail ou Usuário</label>
+                    <input type="email" id="email" name="email" class="form-input" placeholder="Digite seu e-mail de acesso">
+                </div>
+                
+                <div class="form-group">
+                    <div class="password-header">
+                        <label for="password">Senha</label>
+                        <a href="javascript:void(0);" class="forgot-password">Esqueci minha senha</a>
+                    </div>
+                    <input type="password" id="password" name="password" class="form-input" placeholder="Digite sua senha">
+                </div>
+
+                <button type="submit" class="btn-primary btn-login">
+                    Entrar na Plataforma
+                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-left: 8px;"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+                </button>
+            </form>
+
+            <div class="login-footer text-center mt-md">
+                <p class="security-notice">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right: 4px; vertical-align: middle;"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
+                    Acesso restrito e individual. Ambiente profissional protegido.
+                </p>
+            </div>
+        </div>
+
+        <div class="login-back mt-md text-center">
+            <a href="index.html" class="back-link">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right: 6px;"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
+                Voltar para o site principal
+            </a>
+        </div>
+    </div>
+
+    <script>
+        // Simple script to trigger the reveal animation on load
+        document.addEventListener('DOMContentLoaded', () => {
+            setTimeout(() => {
+                document.querySelectorAll('.fade-in-up').forEach(el => {
+                    el.classList.add('visible');
+                });
+            }, 100);
+        });
+    </script>
+</body>
+</html>

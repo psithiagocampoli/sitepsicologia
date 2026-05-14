@@ -1,0 +1,562 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agendamento | Thiago Soares Campoli</title>
+    <meta name="description" content="Agende sua sessão de psicoterapia ou avaliação neuropsicológica.">
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        :root {
+            --glass-bg: rgba(255, 255, 255, 0.85);
+            --glass-border: rgba(255, 255, 255, 0.4);
+            --accent-soft: rgba(110, 124, 118, 0.1);
+        }
+
+        body {
+            background: linear-gradient(135deg, #f5f7f6 0%, #e8edec 100%);
+            min-height: 100vh;
+        }
+
+        .scheduling-container {
+            max-width: 900px;
+            margin: 140px auto 80px auto;
+            padding: 60px;
+            background: var(--glass-bg);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-radius: var(--border-radius-lg);
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.08);
+            border: 1px solid var(--glass-border);
+            position: relative;
+            z-index: 10;
+        }
+
+        /* Sophisticated Background Decoration */
+        .scheduling-container::before {
+            content: '';
+            position: absolute;
+            top: -100px;
+            right: -100px;
+            width: 300px;
+            height: 300px;
+            background: radial-gradient(circle, var(--accent-soft) 0%, transparent 70%);
+            z-index: -1;
+            border-radius: 50%;
+        }
+
+        .step {
+            display: none;
+            animation: premiumFadeIn 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        }
+
+        .step.active {
+            display: block;
+        }
+
+        @keyframes premiumFadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(30px) scale(0.98);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
+        }
+
+        .scheduling-header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .scheduling-header h1 {
+            font-size: 3.2rem;
+            color: var(--color-bg-dark);
+            margin-bottom: 15px;
+            letter-spacing: -0.02em;
+        }
+
+        .scheduling-header p {
+            font-size: 1.1rem;
+            color: var(--color-text-light);
+            max-width: 500px;
+            margin: 0 auto;
+        }
+
+        /* Progress Bar Redesign */
+        .progress-bar {
+            display: flex;
+            justify-content: center;
+            gap: 60px;
+            margin-bottom: 60px;
+            position: relative;
+        }
+
+        .progress-step {
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            background: #FFF;
+            border: 1px solid var(--color-border);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            z-index: 2;
+            font-weight: 500;
+            color: var(--color-text-light);
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            font-size: 0.9rem;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.03);
+        }
+
+        .progress-step::after {
+            content: '';
+            position: absolute;
+            width: 40px;
+            height: 1px;
+            background: var(--color-border);
+            right: -50px;
+            top: 50%;
+        }
+
+        .progress-step:last-child::after {
+            display: none;
+        }
+
+        .progress-step.active {
+            border-color: var(--color-bg-primary);
+            color: var(--color-bg-primary);
+            box-shadow: 0 0 0 6px var(--accent-soft);
+            transform: scale(1.1);
+        }
+
+        .progress-step.completed {
+            background: var(--color-bg-primary);
+            border-color: var(--color-bg-primary);
+            color: #FFF;
+        }
+
+        /* Form Styling */
+        .form-group {
+            margin-bottom: 30px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 12px;
+            font-weight: 500;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--color-bg-dark);
+            opacity: 0.8;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 18px 24px;
+            border-radius: var(--border-radius-sm);
+            border: 1px solid var(--color-border);
+            background: rgba(255, 255, 255, 0.5);
+            font-family: var(--font-body);
+            font-size: 1.05rem;
+            transition: all 0.3s ease;
+        }
+
+        .form-group input:focus {
+            outline: none;
+            border-color: var(--color-bg-primary);
+            background: #FFF;
+            box-shadow: 0 10px 20px -5px rgba(110, 124, 118, 0.15);
+        }
+
+        /* 2D Table Styling */
+        .scheduling-table-container {
+            overflow-x: auto;
+            margin-top: 30px;
+            padding-bottom: 15px;
+            -webkit-overflow-scrolling: touch;
+        }
+
+        .scheduling-table {
+            width: 100%;
+            min-width: 900px;
+            border-collapse: separate;
+            border-spacing: 10px;
+        }
+
+        .scheduling-table th {
+            padding: 15px;
+            font-family: var(--font-heading);
+            font-size: 1.1rem;
+            color: var(--color-bg-dark);
+            text-align: center;
+            background: rgba(255, 255, 255, 0.5);
+            border-radius: var(--border-radius-sm);
+            position: sticky;
+            top: 0;
+            z-index: 5;
+        }
+
+        .day-label {
+            padding: 15px;
+            font-weight: 600;
+            color: var(--color-bg-dark);
+            background: var(--accent-soft);
+            border-radius: var(--border-radius-sm);
+            text-align: left;
+            width: 120px;
+        }
+
+        .time-cell {
+            padding: 12px;
+            background: #FFF;
+            border: 1px solid var(--color-border);
+            border-radius: var(--border-radius-sm);
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 0.85rem;
+            min-width: 110px;
+        }
+
+        .time-cell:hover {
+            border-color: var(--color-bg-primary);
+            background: var(--color-bg-soft);
+            transform: translateY(-3px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+        }
+
+        .time-cell.selected {
+            background: var(--color-bg-primary);
+            color: white;
+            border-color: var(--color-bg-primary);
+            box-shadow: 0 5px 15px rgba(110, 124, 118, 0.3);
+        }
+
+        .time-cell.disabled {
+            opacity: 0.3;
+            cursor: not-allowed;
+            background: #f0f0f0;
+        }
+
+        /* Button Styling */
+        .btn-primary.btn-full {
+            width: 100%;
+            height: 65px;
+            justify-content: center;
+            font-size: 1.1rem;
+            margin-top: 30px;
+            background: linear-gradient(to right, var(--color-bg-primary), var(--color-bg-dark));
+            border: none;
+            box-shadow: 0 15px 35px rgba(63, 71, 68, 0.25);
+        }
+
+        .btn-primary.btn-full:hover:not(:disabled) {
+            transform: translateY(-4px) scale(1.01);
+            box-shadow: 0 20px 40px rgba(63, 71, 68, 0.35);
+        }
+
+        .btn-primary:disabled {
+            background: #D1D5DB;
+            cursor: not-allowed;
+            box-shadow: none;
+            opacity: 0.7;
+        }
+
+        .back-link {
+            display: block;
+            text-align: center;
+            margin-top: 25px;
+            color: var(--color-text-light);
+            cursor: pointer;
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .back-link:hover {
+            color: var(--color-bg-primary);
+        }
+
+        /* Confirmation Card */
+        .confirmation-card {
+            padding: 20px 0;
+        }
+
+        .check-circle {
+            width: 80px;
+            height: 80px;
+            background: #F0FDF4;
+            color: #16A34A;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.5rem;
+            margin: 0 auto 30px auto;
+            border: 2px solid #DCFCE7;
+        }
+
+        @media (max-width: 768px) {
+            .scheduling-container {
+                padding: 40px 20px;
+                margin-top: 100px;
+            }
+
+            .time-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .progress-bar {
+                gap: 30px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Header -->
+    <header class="navbar scrolled">
+        <div class="container navbar-content">
+            <a href="index.html#inicio" class="logo">Thiago Soares Campoli</a>
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="index.html#inicio">Início</a></li>
+                    <li><a href="index.html#sobre">Sobre mim</a></li>
+                    <li><a href="index.html#abordagem">Abordagem</a></li>
+                    <li><a href="index.html#ajuda">Como ajudo</a></li>
+                    <li><a href="index.html#avaliacao">Avaliação</a></li>
+                    <li><a href="login.html" class="nav-highlight">Área do Cliente</a></li>
+                </ul>
+            </nav>
+            <a href="index.html#contato" class="btn-nav">Contato</a>
+        </div>
+    </header>
+
+    <main class="container">
+        <div class="scheduling-container">
+            <!-- Progress Bar -->
+            <div class="progress-bar">
+                <div class="progress-step completed" id="p-step-1">1</div>
+                <div class="progress-step" id="p-step-2">2</div>
+                <div class="progress-step" id="p-step-3">3</div>
+            </div>
+
+            <!-- Step 1: Info -->
+            <div id="step-1" class="step active">
+                <div class="scheduling-header">
+                    <h1>Informações Básicas</h1>
+                    <p>Para começarmos, por favor preencha seus dados de contato.</p>
+                </div>
+                <form id="info-form">
+                    <div class="form-group">
+                        <label for="name">Nome Completo</label>
+                        <input type="text" id="name" placeholder="Seu nome" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">Telefone / WhatsApp</label>
+                        <input type="tel" id="phone" placeholder="(00) 00000-0000" required>
+                    </div>
+                    <button type="submit" class="btn-primary btn-full">Continuar para horários</button>
+                </form>
+            </div>
+
+            <!-- Step 2: Time Slots -->
+            <div id="step-2" class="step">
+                <div class="scheduling-header">
+                    <h1>Escolha um Horário</h1>
+                    <p>Selecione o melhor momento para sua sessão.</p>
+                </div>
+
+                <div class="scheduling-table-container">
+                    <table class="scheduling-table" id="scheduling-table">
+                        <thead>
+                            <tr id="table-header">
+                                <th>Dia / Horário</th>
+                                <!-- Time headers will be inserted here -->
+                            </tr>
+                        </thead>
+                        <tbody id="table-body">
+                            <!-- Day rows will be inserted here -->
+                        </tbody>
+                    </table>
+                </div>
+
+                <button id="confirm-booking" class="btn-primary btn-full" disabled>Confirmar Agendamento</button>
+                <div class="back-link" onclick="goToStep(1)">← Voltar para dados</div>
+            </div>
+
+            <!-- Step 3: Confirmation -->
+            <div id="step-3" class="step">
+                <div class="confirmation-card text-center">
+                    <div class="check-circle">✓</div>
+                    <h1>Agendamento Realizado!</h1>
+                    <p id="confirmation-msg">Olá <span id="conf-name"></span>, seu horário foi reservado com sucesso.
+                    </p>
+                    <p style="margin-top: 20px; font-weight: 500; color: var(--color-bg-dark);">Este horário foi marcado
+                        na agenda de Thiago Soares Campoli.</p>
+                    <div class="mt-lg">
+                        <a href="index.html" class="btn-primary" style="padding: 1.2rem 3rem;">Voltar ao Início</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer text-center">
+        <div class="container">
+            <p>&copy; 2026 Thiago Soares Campoli. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+
+    <script>
+        let userData = {
+            name: '',
+            phone: '',
+            time: ''
+        };
+
+        const infoForm = document.getElementById('info-form');
+        const tableHeader = document.getElementById('table-header');
+        const tableBody = document.getElementById('table-body');
+        const confirmBtn = document.getElementById('confirm-booking');
+
+        const days = ['Segunda', 'Terça', 'Quarta', 'Quinta', 'Sexta'];
+        const times = [
+            '08:00', '09:00', '10:00', '11:00', '12:00', '13:00',
+            '14:00', '15:00', '16:00', '17:00', '18:00', '19:00'
+        ];
+
+        // --- Configuração de Horários Indisponíveis (Administrador) ---
+        // Você pode adicionar os horários fixos que já estão ocupados na sua agenda.
+        // Formato: 'Dia às Horário' (ex: 'Segunda às 08:00')
+        const indisponiveisFixos = [
+            'Quarta às 08:00',
+            'Quarta às 09:00',
+            'Quarta às 10:00',
+            'Quarta às 11:00'
+        ];
+
+        // Carregar horários agendados nesta máquina (simulação sem banco de dados)
+        const indisponiveisLocal = JSON.parse(localStorage.getItem('horariosOcupados')) || [];
+
+        // Combina os fixos do administrador com os que a pessoa já agendou
+        const todosIndisponiveis = [...indisponiveisFixos, ...indisponiveisLocal];
+
+        // Generate Table Headers (Days)
+        days.forEach(day => {
+            const th = document.createElement('th');
+            th.textContent = day;
+            tableHeader.appendChild(th);
+        });
+
+        // Generate Table Rows (Hours)
+        times.forEach(time => {
+            const tr = document.createElement('tr');
+
+            // Time Label
+            const tdTimeLabel = document.createElement('td');
+            tdTimeLabel.className = 'day-label'; // Reusing style for the side label
+            tdTimeLabel.textContent = time;
+            tr.appendChild(tdTimeLabel);
+
+            // Day Cells
+            days.forEach(day => {
+                const tdDay = document.createElement('td');
+                tdDay.className = 'time-cell';
+                tdTimeLabel.style.width = '100px';
+
+                const slotKey = `${day} às ${time}`;
+
+                if (todosIndisponiveis.includes(slotKey)) {
+                    tdDay.classList.add('disabled');
+                    tdDay.textContent = 'Indisponível';
+                } else {
+                    tdDay.textContent = 'Disponível';
+                    tdDay.onclick = () => selectSlot(tdDay, day, time);
+                }
+
+                tr.appendChild(tdDay);
+            });
+
+            tableBody.appendChild(tr);
+        });
+
+        function selectSlot(element, day, time) {
+            document.querySelectorAll('.time-cell').forEach(el => el.classList.remove('selected'));
+            element.classList.add('selected');
+            userData.time = `${day} às ${time}`;
+            confirmBtn.disabled = false;
+        }
+
+        infoForm.onsubmit = (e) => {
+            e.preventDefault();
+            userData.name = document.getElementById('name').value;
+            userData.phone = document.getElementById('phone').value;
+            goToStep(2);
+        };
+
+        confirmBtn.onclick = () => {
+            // Simulate processing
+            confirmBtn.textContent = 'Processando...';
+            confirmBtn.disabled = true;
+
+            setTimeout(() => {
+                // Update Confirmation step details
+                document.getElementById('conf-name').textContent = userData.name;
+                goToStep(3);
+
+                // --- Simulação de Bloqueio ---
+                // Salva o horário no localStorage para que ele fique indisponível na próxima vez
+                const ocupados = JSON.parse(localStorage.getItem('horariosOcupados')) || [];
+                if (!ocupados.includes(userData.time)) {
+                    ocupados.push(userData.time);
+                    localStorage.setItem('horariosOcupados', JSON.stringify(ocupados));
+                }
+
+                // --- WhatsApp Integration ---
+                // Replace with your real WhatsApp Business number (only numbers, country code + area code + number)
+                const phoneBusiness = '5543991730819';
+
+                const message = `Olá! Gostaria de confirmar meu agendamento.\n\n*Nome:* ${userData.name}\n*Contato:* ${userData.phone}\n*Horário Escolhido:* ${userData.time}\n\nAguardando confirmação.`;
+                const encodedMessage = encodeURIComponent(message);
+                const waUrl = `https://wa.me/${phoneBusiness}?text=${encodedMessage}`;
+
+                // Open WhatsApp in a new tab
+                window.open(waUrl, '_blank');
+            }, 1000);
+        };
+
+        function goToStep(n) {
+            document.querySelectorAll('.step').forEach(s => s.classList.remove('active'));
+            document.getElementById(`step-${n}`).classList.add('active');
+
+            // Update Progress Bar
+            for (let i = 1; i <= 3; i++) {
+                const stepEl = document.getElementById(`p-step-${i}`);
+                if (i < n) {
+                    stepEl.classList.add('completed');
+                    stepEl.classList.remove('active');
+                } else if (i === n) {
+                    stepEl.classList.add('active');
+                    stepEl.classList.remove('completed');
+                } else {
+                    stepEl.classList.remove('active', 'completed');
+                }
+            }
+        }
+    </script>
+</body>
+
+</html>
