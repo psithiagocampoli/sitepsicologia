@@ -346,71 +346,17 @@
 
     <main class="container">
         <div class="scheduling-container">
-            <!-- Progress Bar -->
-            <div class="progress-bar">
-                <div class="progress-step completed" id="p-step-1">1</div>
-                <div class="progress-step" id="p-step-2">2</div>
-                <div class="progress-step" id="p-step-3">3</div>
+            <div class="scheduling-header text-center" style="margin-bottom: 20px;">
+                <h1>Agende sua Sessão</h1>
+                <p>Escolha o melhor horário diretamente na minha agenda. O fuso horário será ajustado automaticamente
+                    para a sua região.</p>
             </div>
 
-            <!-- Step 1: Info -->
-            <div id="step-1" class="step active">
-                <div class="scheduling-header">
-                    <h1>Informações Básicas</h1>
-                    <p>Para começarmos, por favor preencha seus dados de contato.</p>
-                </div>
-                <form id="info-form">
-                    <div class="form-group">
-                        <label for="name">Nome Completo</label>
-                        <input type="text" id="name" placeholder="Seu nome" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="phone">Telefone / WhatsApp</label>
-                        <input type="tel" id="phone" placeholder="(00) 00000-0000" required>
-                    </div>
-                    <button type="submit" class="btn-primary btn-full">Continuar para horários</button>
-                </form>
-            </div>
-
-            <!-- Step 2: Time Slots -->
-            <div id="step-2" class="step">
-                <div class="scheduling-header">
-                    <h1>Escolha um Horário</h1>
-                    <p>Selecione o melhor momento para sua sessão.</p>
-                </div>
-
-                <div class="scheduling-table-container">
-                    <table class="scheduling-table" id="scheduling-table">
-                        <thead>
-                            <tr id="table-header">
-                                <th>Dia / Horário</th>
-                                <!-- Time headers will be inserted here -->
-                            </tr>
-                        </thead>
-                        <tbody id="table-body">
-                            <!-- Day rows will be inserted here -->
-                        </tbody>
-                    </table>
-                </div>
-
-                <button id="confirm-booking" class="btn-primary btn-full" disabled>Confirmar Agendamento</button>
-                <div class="back-link" onclick="goToStep(1)">← Voltar para dados</div>
-            </div>
-
-            <!-- Step 3: Confirmation -->
-            <div id="step-3" class="step">
-                <div class="confirmation-card text-center">
-                    <div class="check-circle">✓</div>
-                    <h1>Agendamento Realizado!</h1>
-                    <p id="confirmation-msg">Olá <span id="conf-name"></span>, seu horário foi reservado com sucesso.
-                    </p>
-                    <p style="margin-top: 20px; font-weight: 500; color: var(--color-bg-dark);">Este horário foi marcado
-                        na agenda de Thiago Soares Campoli.</p>
-                    <div class="mt-lg">
-                        <a href="index.html" class="btn-primary" style="padding: 1.2rem 3rem;">Voltar ao Início</a>
-                    </div>
-                </div>
-            </div>
+            <!-- Calendly inline widget begin -->
+            <div class="calendly-inline-widget" data-url="https://calendly.com/psi-thiagocampoli?hide_gdpr_banner=1"
+                style="min-width:320px;height:700px;"></div>
+            <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
+            <!-- Calendly inline widget end -->
         </div>
     </main>
 
@@ -420,143 +366,6 @@
         </div>
     </footer>
 
-    <script>
-        let userData = {
-            name: '',
-            phone: '',
-            time: ''
-        };
-
-        const infoForm = document.getElementById('info-form');
-        const tableHeader = document.getElementById('table-header');
-        const tableBody = document.getElementById('table-body');
-        const confirmBtn = document.getElementById('confirm-booking');
-
-        const days = ['Segunda', 'Terça', 'Quarta', 'Quinta', 'Sexta'];
-        const times = [
-            '08:00', '09:00', '10:00', '11:00', '12:00', '13:00',
-            '14:00', '15:00', '16:00', '17:00', '18:00', '19:00'
-        ];
-
-        // --- Configuração de Horários Indisponíveis (Administrador) ---
-        // Você pode adicionar os horários fixos que já estão ocupados na sua agenda.
-        // Formato: 'Dia às Horário' (ex: 'Segunda às 08:00')
-        const indisponiveisFixos = [
-            'Quarta às 08:00',
-            'Quarta às 09:00',
-            'Quarta às 10:00',
-            'Quarta às 11:00'
-        ];
-
-        // Carregar horários agendados nesta máquina (simulação sem banco de dados)
-        const indisponiveisLocal = JSON.parse(localStorage.getItem('horariosOcupados')) || [];
-
-        // Combina os fixos do administrador com os que a pessoa já agendou
-        const todosIndisponiveis = [...indisponiveisFixos, ...indisponiveisLocal];
-
-        // Generate Table Headers (Days)
-        days.forEach(day => {
-            const th = document.createElement('th');
-            th.textContent = day;
-            tableHeader.appendChild(th);
-        });
-
-        // Generate Table Rows (Hours)
-        times.forEach(time => {
-            const tr = document.createElement('tr');
-
-            // Time Label
-            const tdTimeLabel = document.createElement('td');
-            tdTimeLabel.className = 'day-label'; // Reusing style for the side label
-            tdTimeLabel.textContent = time;
-            tr.appendChild(tdTimeLabel);
-
-            // Day Cells
-            days.forEach(day => {
-                const tdDay = document.createElement('td');
-                tdDay.className = 'time-cell';
-                tdTimeLabel.style.width = '100px';
-
-                const slotKey = `${day} às ${time}`;
-
-                if (todosIndisponiveis.includes(slotKey)) {
-                    tdDay.classList.add('disabled');
-                    tdDay.textContent = 'Indisponível';
-                } else {
-                    tdDay.textContent = 'Disponível';
-                    tdDay.onclick = () => selectSlot(tdDay, day, time);
-                }
-
-                tr.appendChild(tdDay);
-            });
-
-            tableBody.appendChild(tr);
-        });
-
-        function selectSlot(element, day, time) {
-            document.querySelectorAll('.time-cell').forEach(el => el.classList.remove('selected'));
-            element.classList.add('selected');
-            userData.time = `${day} às ${time}`;
-            confirmBtn.disabled = false;
-        }
-
-        infoForm.onsubmit = (e) => {
-            e.preventDefault();
-            userData.name = document.getElementById('name').value;
-            userData.phone = document.getElementById('phone').value;
-            goToStep(2);
-        };
-
-        confirmBtn.onclick = () => {
-            // Simulate processing
-            confirmBtn.textContent = 'Processando...';
-            confirmBtn.disabled = true;
-
-            setTimeout(() => {
-                // Update Confirmation step details
-                document.getElementById('conf-name').textContent = userData.name;
-                goToStep(3);
-
-                // --- Simulação de Bloqueio ---
-                // Salva o horário no localStorage para que ele fique indisponível na próxima vez
-                const ocupados = JSON.parse(localStorage.getItem('horariosOcupados')) || [];
-                if (!ocupados.includes(userData.time)) {
-                    ocupados.push(userData.time);
-                    localStorage.setItem('horariosOcupados', JSON.stringify(ocupados));
-                }
-
-                // --- WhatsApp Integration ---
-                // Replace with your real WhatsApp Business number (only numbers, country code + area code + number)
-                const phoneBusiness = '5543991730819';
-
-                const message = `Olá! Gostaria de confirmar meu agendamento.\n\n*Nome:* ${userData.name}\n*Contato:* ${userData.phone}\n*Horário Escolhido:* ${userData.time}\n\nAguardando confirmação.`;
-                const encodedMessage = encodeURIComponent(message);
-                const waUrl = `https://wa.me/${phoneBusiness}?text=${encodedMessage}`;
-
-                // Open WhatsApp in a new tab
-                window.open(waUrl, '_blank');
-            }, 1000);
-        };
-
-        function goToStep(n) {
-            document.querySelectorAll('.step').forEach(s => s.classList.remove('active'));
-            document.getElementById(`step-${n}`).classList.add('active');
-
-            // Update Progress Bar
-            for (let i = 1; i <= 3; i++) {
-                const stepEl = document.getElementById(`p-step-${i}`);
-                if (i < n) {
-                    stepEl.classList.add('completed');
-                    stepEl.classList.remove('active');
-                } else if (i === n) {
-                    stepEl.classList.add('active');
-                    stepEl.classList.remove('completed');
-                } else {
-                    stepEl.classList.remove('active', 'completed');
-                }
-            }
-        }
-    </script>
+    <!-- Custom Script removed in favor of Calendly embed -->
 </body>
-
 </html>

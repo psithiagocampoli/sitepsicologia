@@ -1183,3 +1183,47 @@ section {
         height: 24px;
     }
 }
+
+/* =========================================
+   Arabescos (Background Animation)
+   ========================================= */
+section {
+    position: relative;
+    overflow: hidden;
+}
+
+/* Garantir que o texto fique por cima */
+.container {
+    position: relative;
+    z-index: 2;
+}
+
+.arabesque {
+    position: absolute;
+    z-index: 1;
+    pointer-events: none;
+    color: var(--color-bg-primary); /* Verde suave */
+    opacity: 0.65; /* Bem mais visível */
+    animation: gentle-sway 12s ease-in-out infinite alternate;
+}
+
+/* Specific colors for dark backgrounds */
+.bg-primary .arabesque,
+.bg-dark .arabesque {
+    color: var(--color-bg-soft);
+    opacity: 0.3;
+}
+
+@keyframes gentle-sway {
+    0% { transform: translateY(0) rotate(0deg) scale(1); }
+    100% { transform: translateY(-15px) rotate(3deg) scale(1.05); }
+}
+
+.arabesque-1 { top: -50px; left: -50px; width: 400px; height: 400px; }
+.arabesque-2 { bottom: -100px; right: -100px; width: 450px; height: 450px; animation-delay: -4s; animation-duration: 15s; }
+.arabesque-3 { top: 30%; left: -150px; width: 350px; height: 350px; animation-delay: -7s; animation-duration: 18s; }
+.arabesque-4 { top: -80px; right: -50px; width: 300px; height: 300px; animation-delay: -2s; animation-duration: 14s; }
+.arabesque-5 { bottom: -50px; left: -80px; width: 380px; height: 380px; animation-delay: -6s; animation-duration: 16s; }
+.arabesque-6 { top: 40%; right: -120px; width: 400px; height: 400px; animation-delay: -3s; animation-duration: 17s; }
+.arabesque-7 { top: -20px; left: 40%; width: 250px; height: 250px; animation-delay: -8s; animation-duration: 13s; }
+.arabesque-8 { bottom: -40px; right: 20%; width: 300px; height: 300px; animation-delay: -1s; animation-duration: 11s; }
