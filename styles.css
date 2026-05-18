@@ -4,13 +4,13 @@
 
 :root {
     /* Color Palette - Suave, Calma, Confiança */
-    --color-bg-main: #FAFAFA;       /* Limpo, claro, muito respirável */
-    --color-bg-soft: #F4F1ED;       /* Leve tom de areia / bege acolhedor */
-    --color-bg-primary: #6E7C76;    /* Verde sálvia muito elegante e tranquilo */
-    --color-bg-dark: #3F4744;       /* Tom escuro para contrastes marcantes e sofisticação */
+    --color-bg-main: #F3F7F4;       /* Verde musgo extremamente claro e sutil (fundo principal) */
+    --color-bg-soft: #E6EFE9;       /* Verde claro ligeiramente mais fechado (fundo secundário) */
+    --color-bg-primary: #5A7D69;    /* Verde musgo claro e vibrante */
+    --color-bg-dark: #1A2F25;       /* Verde escuro bem profundo (tons de noite/floresta) */
     
-    --color-text-main: #2F2F2F;     /* Cinza muito escuro (menos agressivo q preto) */
-    --color-text-light: #5E5E5E;    /* Para subtítulos e textos secundários */
+    --color-text-main: #1D2420;     /* Muito escuro, harmonizando com o fundo verde */
+    --color-text-light: #5E6662;    /* Para subtítulos e textos secundários */
     --color-text-inverse: #FCFCFC;  /* Branco puro para textos sobre fundos escuros */
     
     --color-accent: #B29B84;        /* Tom de terra/areia quente para detalhes e ícones */
@@ -183,12 +183,27 @@ section {
     align-items: center;
 }
 
+.logo-container {
+    display: flex;
+    flex-direction: column;
+}
+
 .logo {
     font-family: var(--font-heading);
     font-size: 1.3rem;
     font-weight: 600;
     letter-spacing: -0.5px;
     color: var(--color-bg-dark);
+    line-height: 1.1;
+}
+
+.logo-subtitle {
+    font-size: 0.75rem;
+    color: var(--color-bg-primary);
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    margin-top: 2px;
 }
 
 .nav-links {
