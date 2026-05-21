@@ -129,33 +129,19 @@ body {
    ========================================= */
 .ead-hero {
     position: relative;
-    height: 85vh;
+    min-height: 70vh;
+    height: auto;
     width: 100%;
-    background-image: url('https://images.unsplash.com/photo-1493661284688-668045f4af45?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
-    background-size: cover;
-    background-position: center 20%;
+    /* Fundo escuro limpo, sem imagem para não confundir */
+    background: linear-gradient(135deg, var(--bg-card) 0%, var(--bg-base) 100%);
     display: flex;
     align-items: center;
-    padding: 0 4%;
+    padding: 120px 4% 4rem 4%; /* Added top padding to clear navbar */
 }
 
-/* Netflix-style vignette overlay */
-.hero-vignette {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: linear-gradient(77deg, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0) 85%);
-}
-
-.hero-vignette-bottom {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    height: 150px;
-    background: linear-gradient(to top, var(--bg-base) 0%, rgba(20,20,20,0) 100%);
+/* Remover overlays já que não há imagem */
+.hero-vignette, .hero-vignette-bottom {
+    display: none;
 }
 
 .hero-content {
@@ -222,13 +208,84 @@ body {
 }
 
 /* =========================================
+   Construction Banner
+   ========================================= */
+.construction-banner {
+    background-color: var(--bg-card);
+    border: 1px solid rgba(120, 140, 131, 0.3);
+    border-left: 4px solid var(--color-accent);
+    border-radius: var(--border-radius-md);
+    padding: 2rem;
+    margin-bottom: 3rem;
+    display: flex;
+    gap: 1.5rem;
+    align-items: flex-start;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+}
+
+.construction-icon {
+    font-size: 2rem;
+    line-height: 1;
+}
+
+.construction-content h2 {
+    font-size: 1.5rem;
+    color: #FFF;
+    margin-bottom: 0.5rem;
+}
+
+.construction-content p {
+    color: var(--color-text-muted);
+    font-size: 1.05rem;
+    margin-bottom: 1.5rem;
+    line-height: 1.5;
+}
+
+.upcoming-themes {
+    background-color: rgba(0,0,0,0.2);
+    padding: 1.2rem 1.5rem;
+    border-radius: var(--border-radius-sm);
+    border: 1px solid rgba(255,255,255,0.05);
+}
+
+.upcoming-themes strong {
+    display: block;
+    color: var(--color-accent);
+    margin-bottom: 0.8rem;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.upcoming-themes ul {
+    list-style: none;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 0.8rem;
+}
+
+.upcoming-themes li {
+    color: var(--color-text-main);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.95rem;
+}
+
+.upcoming-themes li::before {
+    content: '→';
+    color: var(--color-accent);
+    font-weight: bold;
+}
+
+/* =========================================
    Sliders / Rows
    ========================================= */
 .ead-main {
     padding: 0 4% 4rem 4%;
     position: relative;
     z-index: 3;
-    margin-top: -80px; /* Pull rows slightly over the banner */
+    margin-top: 2rem; /* Alterado de -80px para evitar sobreposição */
 }
 
 .slider-row {
