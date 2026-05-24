@@ -28,23 +28,10 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    // Smooth scrolling for anchor links
+    // Anchor links: allow native CSS smooth scroll, just close mobile menu
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
-            e.preventDefault();
-            const targetId = this.getAttribute('href');
-            if (targetId === '#') return;
-            
-            const target = document.querySelector(targetId);
-            if (target) {
-                const navHeight = document.querySelector('.navbar').offsetHeight;
-                window.scrollTo({
-                    top: target.offsetTop - navHeight,
-                    behavior: 'smooth'
-                });
-            }
-            // Close mobile nav if open
-            if(mobileNav && mobileNav.classList.contains('open')){
+            if (mobileNav && mobileNav.classList.contains('open')) {
                 mobileNav.classList.remove('open');
                 mobileMenuBtn.classList.remove('open');
             }
