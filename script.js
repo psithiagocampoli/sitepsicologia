@@ -70,4 +70,23 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     });
+
+    // About Tabs
+    const tabBtns = document.querySelectorAll('.tab-btn');
+    const tabPanes = document.querySelectorAll('.tab-pane');
+    
+    if (tabBtns.length > 0) {
+        tabBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                // Remove active from all
+                tabBtns.forEach(b => b.classList.remove('active'));
+                tabPanes.forEach(p => p.classList.remove('active'));
+                
+                // Add active to clicked
+                btn.classList.add('active');
+                const target = document.getElementById('tab-' + btn.getAttribute('data-tab'));
+                if (target) target.classList.add('active');
+            });
+        });
+    }
 });

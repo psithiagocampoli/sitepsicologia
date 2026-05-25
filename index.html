@@ -159,24 +159,39 @@
                     <h2 class="section-title">Sobre mim</h2>
                     
 
-                    <div class="about-credentials mt-md">
-                        <div class="credential-item">
-                            <h3 style="font-size: 1.2rem; margin-bottom: 0.8rem; color: var(--color-bg-dark);">Formação e Especializações</h3>
-                            <p style="margin-bottom: 1rem; line-height: 1.6;">Graduado em Psicologia, Especialista em Estatística com Ênfase em Pesquisa Quantitativa, Mestre em Análise do Comportamento pela Universidade Estadual de Londrina (UEL) e Especialista em Neuropsicologia pelo Instituto de Psiquiatria da Universidade de São Paulo (HCUSP).</p>
+                    <div class="about-tabs-container mt-md">
+                        <div class="about-tabs-header">
+                            <button class="tab-btn active" data-tab="formacao">🎓 Formação Acadêmica</button>
+                            <button class="tab-btn" data-tab="clinica">🏥 Experiência Clínica</button>
+                            <button class="tab-btn" data-tab="abordagem">🧠 Abordagem</button>
+                        </div>
+                        <div class="about-tabs-content">
+                            <!-- Formação -->
+                            <div class="tab-pane active" id="tab-formacao">
+                                <p class="tab-text-large">Graduado em Psicologia, Especialista em Estatística com Ênfase em Pesquisa Quantitativa, Mestre em Análise do Comportamento pela Universidade Estadual de Londrina (UEL), Especialista em Neuropsicologia pelo Instituto de Psiquiatria da Universidade de São Paulo (HCUSP) e certificado pelo Conselho Federal de Psicologia (CFP).</p>
+                            </div>
                             
-                            <strong style="display: block; margin-bottom: 0.5rem;">Formação em:</strong>
-                            <ul style="margin-left: 1.5rem; line-height: 1.6; color: var(--color-text-body);">
-                                <li>Nivel 1 em Radically Open Dialectical Behavior Therapy (RO-DBT)</li>
-                                <li>Introdução ao Bom Manejo Clinico (GPM; Instituto de Psiquiatria da USP)</li>
-                                <li>Treinador de Grupo de Habilidades DBT (Vincular)</li>
-                                <li>Psicologia Baseada em Processos (PBP; Diadelab)</li>
-                                <li>Psicometria e Análise de Dados (Psicometria Online Academy)</li>
-                                <li>Interpretação de Artigos Científicos (Igor Eckert)</li>
-                                <li>Terapia de Aceitação e Compromisso (ACT; Escola de Educação Permanente do Instituto de Psiquiatria da USP)</li>
-                                <li>Psicologia Baseada em Evidências (Clube de Psicologia Baseada em Evidências; Jan Leonardi)</li>
-                                <li>Terapia Comportamental Dialética (Behavioral Tech - DBT Brasil)</li>
-                                <li>Qualificação em Terapia Afirmativa (Editora Afirmativa)</li>
-                            </ul>
+                            <!-- Clínica -->
+                            <div class="tab-pane" id="tab-clinica">
+                                <ul class="interactive-list">
+                                    <li><strong>Introdução ao Bom Manejo Clínico (GPM)</strong> <span>Instituto de Psiquiatria da USP</span></li>
+                                    <li><strong>Psicologia Baseada em Processos (PBP)</strong> <span>Diadelab</span></li>
+                                    <li><strong>Psicometria e Análise de Dados</strong> <span>Psicometria Online Academy</span></li>
+                                    <li><strong>Interpretação de Artigos Científicos</strong> <span>Igor Eckert</span></li>
+                                </ul>
+                            </div>
+                            
+                            <!-- Abordagem -->
+                            <div class="tab-pane" id="tab-abordagem">
+                                <ul class="interactive-list">
+                                    <li><strong>Terapia de Aceitação e Compromisso (ACT)</strong> <span>Escola de Educação Permanente do Instituto de Psiquiatria da USP</span></li>
+                                    <li><strong>Terapia Comportamental Dialética (DBT)</strong> <span>Behavioral Tech - DBT Brasil</span></li>
+                                    <li><strong>Radically Open DBT (RO-DBT)</strong> <span>Nível 1</span></li>
+                                    <li><strong>Treinador de Grupo de Habilidades DBT</strong> <span>Vincular</span></li>
+                                    <li><strong>Psicologia Baseada em Evidências</strong> <span>Clube de PBE - Jan Leonardi</span></li>
+                                    <li><strong>Qualificação em Terapia Afirmativa</strong> <span>Editora Afirmativa</span></li>
+                                </ul>
+                            </div>
                         </div>
                     </div>
                 </div>
