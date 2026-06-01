@@ -25,10 +25,10 @@
                 <p>Neste espaço, você poderá acessar conteúdos em vídeo, materiais e recursos exclusivos disponibilizados para acompanhamento e aprofundamento do seu processo.</p>
             </div>
 
-            <form class="login-form" action="#" method="POST" onsubmit="event.preventDefault(); window.location.href='plataforma.html';">
+            <form class="login-form" id="loginForm" action="#" method="POST">
                 <div class="form-group">
-                    <label for="email">E-mail ou Usuário</label>
-                    <input type="email" id="email" name="email" class="form-input" placeholder="Digite seu e-mail de acesso">
+                    <label for="username">Usuário</label>
+                    <input type="text" id="username" name="username" class="form-input" placeholder="Digite seu usuário" required>
                 </div>
                 
                 <div class="form-group">
@@ -36,7 +36,11 @@
                         <label for="password">Senha</label>
                         <a href="javascript:void(0);" class="forgot-password">Esqueci minha senha</a>
                     </div>
-                    <input type="password" id="password" name="password" class="form-input" placeholder="Digite sua senha">
+                    <input type="password" id="password" name="password" class="form-input" placeholder="Digite sua senha" required>
+                </div>
+
+                <div id="loginError" style="color: #d9534f; display: none; margin-bottom: 15px; text-align: center; font-size: 0.9rem; font-weight: 500;">
+                    Usuário ou senha incorretos.
                 </div>
 
                 <button type="submit" class="btn-primary btn-login">
@@ -71,5 +75,6 @@
             }, 100);
         });
     </script>
+    <script src="script.js"></script>
 </body>
 </html>

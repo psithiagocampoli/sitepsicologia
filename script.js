@@ -89,4 +89,43 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         });
     }
+
+    // Login Form Logic
+    const loginForm = document.getElementById('loginForm');
+    if (loginForm) {
+        // Lista de usuários e senhas autorizados (Pode ser atualizada diariamente aqui)
+        const validUsers = {
+            "arthurs": "14042016",
+            "evaldoa": "20081970",
+            "fábiog": "01051997",
+            "pedroa": "19012015",
+            "rafaelar": "14071989",
+            "victorian": "23092005",
+            "brunoa": "19101984",
+            "marcosm": "21082013",
+            "thiagoc": "16061994"
+        };
+
+        loginForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const usernameInput = document.getElementById('username').value.trim();
+            const passwordInput = document.getElementById('password').value.trim();
+            const errorDiv = document.getElementById('loginError');
+
+            // Valida se o usuário existe e se a senha está correta
+            if (validUsers[usernameInput] && validUsers[usernameInput] === passwordInput) {
+                // Sucesso no login, redireciona para a plataforma
+                if (errorDiv) errorDiv.style.display = 'none';
+                window.location.href = 'plataforma.html';
+            } else {
+                // Erro de login
+                if (errorDiv) {
+                    errorDiv.style.display = 'block';
+                } else {
+                    alert('Usuário ou senha incorretos.');
+                }
+            }
+        });
+    }
 });
