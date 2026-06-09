@@ -105,13 +105,19 @@ document.addEventListener('DOMContentLoaded', () => {
             "victorian": "23092005",
             "brunoa": "19101984",
             "marcosm": "21082013",
-            "thiagoc": "16061994"
+            "thiagoc": "16061994",
+            "osmars": "30081996",
+            "paulav": "14111990",
+            "renanm": "16051987",
+            "davip": "02042013",
+            "simonef": "10031983",
+            "rafaelas": "14071989"
         };
 
         loginForm.addEventListener('submit', function(e) {
             e.preventDefault();
             
-            const usernameInput = document.getElementById('username').value.trim();
+            const usernameInput = document.getElementById('username').value.trim().toLowerCase();
             const passwordInput = document.getElementById('password').value.trim();
             const errorDiv = document.getElementById('loginError');
 
