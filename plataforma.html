@@ -16,9 +16,8 @@
             </a>
             <ul class="ead-menu">
                 <li><a href="#" class="active">Início</a></li>
-                <li><a href="#">Cursos e Formações</a></li>
-                <li><a href="#">Materiais de Apoio</a></li>
-                <li><a href="#">Minha Lista</a></li>
+                <li><a href="#validacao">Validação Emocional</a></li>
+                <li><a href="#materiais">Materiais de Apoio</a></li>
             </ul>
         </div>
         <div class="ead-nav-right">
@@ -32,26 +31,21 @@
         <div class="hero-vignette"></div>
         <div class="hero-vignette-bottom"></div>
         <div class="hero-content" style="max-width: 800px;">
-            <div style="display: inline-flex; align-items: center; gap: 0.5rem; background-color: rgba(229, 9, 20, 0.15); padding: 0.5rem 1.2rem; border-radius: 4px; font-weight: 700; font-size: 0.95rem; color: #ff6b6b; margin-bottom: 1.5rem; border: 1px solid rgba(229, 9, 20, 0.3); text-transform: uppercase; letter-spacing: 0.5px;">
-                <span style="font-size: 1.2rem;">🚧</span> AVISO: PLATAFORMA EM CONSTRUÇÃO E APRIMORAMENTO
+            <div style="display: inline-flex; align-items: center; gap: 0.5rem; background-color: rgba(120, 140, 131, 0.2); padding: 0.5rem 1.2rem; border-radius: 4px; font-weight: 700; font-size: 0.95rem; color: #788C83; margin-bottom: 1.5rem; border: 1px solid rgba(120, 140, 131, 0.4); text-transform: uppercase; letter-spacing: 0.5px;">
+                <span>✨</span> ESPAÇO DE APRENDIZADO E ACOLHIMENTO
             </div>
             
-            <h1 class="hero-title" style="font-size: 3rem;">Um novo espaço para o seu desenvolvimento</h1>
+            <h1 class="hero-title" style="font-size: 3rem;">Habilidade de Validação Emocional</h1>
             
             <p class="hero-desc" style="font-size: 1.15rem; color: #E5E5E5; margin-bottom: 2rem;">
-                O objetivo desta plataforma é centralizar materiais de apoio, ferramentas práticas e vídeo-aulas para complementar e acelerar o seu processo terapêutico.
-                <br><br>
-                <strong style="color: #FFF;">Importante:</strong> Todo este ambiente visual e os conteúdos ainda estão em fase de estruturação e testes.
+                Aprenda a reconhecer, acolher e validar emoções na prática. Assista à sequência de aulas e acesse materiais de apoio para fortalecer suas conexões e o autoconhecimento.
             </p>
             
-            <div class="upcoming-themes" style="background-color: rgba(0,0,0,0.3); border-left: 4px solid var(--color-accent); padding: 1.5rem;">
-                <strong style="font-size: 1rem; color: #FFF;">Temas que serão trabalhados ao longo dos próximos 3 meses:</strong>
-                <ul style="margin-top: 1rem;">
-                    <li>Validação</li>
-                    <li>O que são emoções</li>
-                    <li>O que são pensamentos</li>
-                    <li>Compaixão</li>
-                </ul>
+            <div class="hero-buttons">
+                <a href="plataforma-curso.html" class="btn-play">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor" style="margin-right: 6px;"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
+                    Iniciar Aulas de Validação
+                </a>
             </div>
         </div>
     </header>
@@ -59,38 +53,25 @@
     <!-- Trilhas / Catálogo -->
     <main class="ead-main">
         
-        <!-- Categoria 1: Artigos -->
-        <div class="slider-row">
-            <h3 class="slider-title">Artigos</h3>
+        <!-- Categoria 1: Validação Emocional -->
+        <div class="slider-row" id="validacao">
+            <h3 class="slider-title">Trilha: Habilidade de Validação Emocional</h3>
             <div class="slider-container">
-                <!-- Artigo 1 -->
-                <div class="course-card" onclick="alert('Acessando artigo...')">
-                    <img src="https://images.unsplash.com/photo-1455390582262-044cdead2708?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Artigo Ansiedade" class="course-thumb">
-                    <div class="course-overlay"><span class="course-overlay-title">Lidando com a Ansiedade no Dia a Dia</span></div>
-                </div>
-                <!-- Artigo 2 -->
-                <div class="course-card" onclick="alert('Acessando artigo...')">
-                    <img src="https://images.unsplash.com/photo-1499209974431-9dddcece7f88?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Artigo Burnout" class="course-thumb">
-                    <div class="course-overlay"><span class="course-overlay-title">Sinais de Esgotamento e Burnout</span></div>
-                </div>
-                <!-- Artigo 3 -->
-                <div class="course-card" onclick="alert('Acessando artigo...')">
-                    <img src="https://images.unsplash.com/photo-1506126613408-eca07ce68773?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Artigo Terapia" class="course-thumb">
-                    <div class="course-overlay"><span class="course-overlay-title">Como a Terapia Pode Mudar sua Vida</span></div>
+                <!-- Card do Curso de Validação -->
+                <div class="course-card" onclick="window.location.href='plataforma-curso.html'">
+                    <img src="https://images.unsplash.com/photo-1506126613408-eca07ce68773?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Validação Emocional" class="course-thumb">
+                    <div class="course-overlay">
+                        <span class="course-overlay-title">Aulas 1 e 2: O que é e Como Aplicar a Validação Emocional</span>
+                    </div>
                 </div>
             </div>
         </div>
 
-        <!-- Categoria 2: Vídeos -->
+        <!-- Categoria 2: Outros Cursos & Formações -->
         <div class="slider-row">
-            <h3 class="slider-title">Vídeos</h3>
+            <h3 class="slider-title">Outras Formações</h3>
             <div class="slider-container">
-                <!-- Vídeo 1 (Link para curso atual) -->
-                <div class="course-card" onclick="window.location.href='plataforma-curso.html'">
-                    <img src="https://images.unsplash.com/photo-1493661284688-668045f4af45?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="TDAH" class="course-thumb">
-                    <div class="course-overlay"><span class="course-overlay-title">Guia Prático: TDAH na Infância</span></div>
-                </div>
-                <!-- Vídeo 2 -->
+                <!-- Vídeo Neuropsicologia -->
                 <div class="course-card" onclick="window.location.href='plataforma-neuro.html'">
                     <img src="https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Neuropsicologia" class="course-thumb">
                     <div class="course-overlay"><span class="course-overlay-title">O Processo de Avaliação Neuropsicológica</span></div>
@@ -99,7 +80,7 @@
         </div>
 
         <!-- Categoria 3: Material de Apoio -->
-        <div class="slider-row">
+        <div class="slider-row" id="materiais">
             <h3 class="slider-title">Material de Apoio (Downloads)</h3>
             <div class="slider-container">
                 <!-- Material 1 -->
