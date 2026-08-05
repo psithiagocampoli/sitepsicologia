@@ -22,4 +22,123 @@
     <nav class="ead-navbar" id="navbar" style="background-color: var(--bg-nav);">
         <div class="ead-nav-left">
             <a href="plataforma.html" class="ead-logo">
-                <img src="assets/logo.png"
+                <img src="assets/logo.png" alt="Logo Thiago Soares Campoli" onerror="this.outerHTML='<h3 style=\'color:white;\'>Thiago Soares</h3>'">
+            </a>
+            <ul class="ead-menu">
+                <li><a href="plataforma.html">Página Inicial</a></li>
+                <li><a href="plataforma.html">Voltar ao Catálogo</a></li>
+            </ul>
+        </div>
+        <div class="ead-nav-right">
+            <div class="profile-avatar" title="Meu Perfil"></div>
+        </div>
+    </nav>
+
+    <div class="player-layout">
+        <!-- Video Area Player -->
+        <div class="video-container">
+            <iframe id="main-video-player" 
+                    src="https://www.youtube.com/embed/B4gMafozt4g?rel=0&autoplay=0" 
+                    title="Player de Vídeo" 
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                    allowfullscreen>
+            </iframe>
+        </div>
+
+        <div class="course-content-grid">
+            <!-- Left Column: Details -->
+            <div class="course-details">
+                <div class="course-header">
+                    <h1 id="lesson-title">Aula 1: O que é Validação?</h1>
+                    <div class="course-meta">
+                        <span>Trilha: Habilidade de Validação Emocional</span>
+                        <span id="lesson-duration">Duração: Vídeo Explicativo</span>
+                    </div>
+                </div>
+
+                <div class="course-tabs">
+                    <div class="tab active">Visão Geral da Aula</div>
+                    <div class="tab">Materiais Anexos</div>
+                </div>
+
+                <p class="course-desc" id="lesson-desc">
+                    Nesta primeira aula, você vai compreender os fundamentos do que é a validação emocional. Antes de tentar aplicar ferramentas práticas no dia a dia ou em relacionamentos, é essencial entender a base conceitual da validação, a importância de reconhecer a experiência do outro e como isso transforma a comunicação e o acolhimento.
+                </p>
+
+                <h3 style="margin-top: 2rem; margin-bottom: 1rem; font-size: 1.1rem;">Materiais Complementares (PDF)</h3>
+                <div class="materials-list">
+                    <a href="#" class="material-item">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color:#788C83;"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
+                        Guia Prático - O que é Validação Emocional.pdf
+                    </a>
+                    <a href="#" class="material-item">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color:#788C83;"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
+                        Exercício de Fixação - Conceitos de Acolhimento.pdf
+                    </a>
+                </div>
+            </div>
+
+            <!-- Right Column: Lesson List -->
+            <div class="episodes-panel">
+                <h3 class="episodes-title">Habilidade de Validação</h3>
+                
+                <div class="episode active" 
+                     data-video-id="B4gMafozt4g" 
+                     data-title="Aula 1: O que é Validação?" 
+                     data-duration="Duração: Vídeo Explicativo" 
+                     data-desc="Nesta primeira aula, você vai compreender os fundamentos do que é a validação emocional. Antes de tentar aplicar ferramentas práticas no dia a dia ou em relacionamentos, é essencial entender a base conceitual da validação, a importância de reconhecer a experiência do outro e como isso transforma a comunicação e o acolhimento.">
+                    <div class="episode-num">1</div>
+                    <div class="episode-info">
+                        <h4>O que é Validação?</h4>
+                        <p class="episode-status">Assistindo agora • Aula 1</p>
+                    </div>
+                </div>
+
+                <div class="episode" 
+                     data-video-id="LmtlvGxiAbU" 
+                     data-title="Aula 2: Como podemos validar (Aplicação Prática)" 
+                     data-duration="Duração: Vídeo Prático" 
+                     data-desc="Na segunda aula da sequência, passamos da teoria para a prática: como você pode validar emoções na prática cotidiana? Veja passos simples, frases de acolhimento e atitudes concretas para exercitar a habilidade de validação no seu dia a dia.">
+                    <div class="episode-num">2</div>
+                    <div class="episode-info">
+                        <h4>Como podemos validar</h4>
+                        <p class="episode-status">Vídeo • Aula 2</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.querySelectorAll('.episode[data-video-id]').forEach(episode => {
+            episode.addEventListener('click', () => {
+                // Update active state
+                document.querySelectorAll('.episode').forEach(e => {
+                    e.classList.remove('active');
+                    const status = e.querySelector('.episode-status');
+                    if (status) {
+                        status.textContent = status.textContent.replace('Assistindo agora •', 'Vídeo •');
+                    }
+                });
+                
+                episode.classList.add('active');
+                const status = episode.querySelector('.episode-status');
+                if (status && !status.textContent.includes('Assistindo agora')) {
+                    status.textContent = status.textContent.replace('Vídeo •', 'Assistindo agora •');
+                }
+
+                // Update iframe
+                const videoId = episode.getAttribute('data-video-id');
+                const player = document.getElementById('main-video-player');
+                player.src = `https://www.youtube.com/embed/${videoId}?autoplay=1&rel=0`;
+
+                // Update title & description
+                document.getElementById('lesson-title').textContent = episode.getAttribute('data-title');
+                document.getElementById('lesson-duration').textContent = episode.getAttribute('data-duration');
+                document.getElementById('lesson-desc').textContent = episode.getAttribute('data-desc');
+            });
+        });
+    </script>
+</body>
+</html>
