@@ -99,7 +99,6 @@ document.addEventListener('DOMContentLoaded', () => {
         const validUsers = {
             "pedroc": "16072014",
             "rachelp": "5101974",
-            "rachelp_alt": "05101974",
             "vitork": "22032014",
             "brunoa": "19101984",
             "marcosm": "21082013",
@@ -122,7 +121,8 @@ document.addEventListener('DOMContentLoaded', () => {
             "matheusc": "12011993",
             "ademirc": "12011965",
             "katiac": "29041964",
-            "thiagoc": "16061994"
+            "thiagoc": "16061994",
+            "julianab": "12011998"
         };
 
         loginForm.addEventListener('submit', function(e) {
@@ -138,7 +138,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const isValidUser = validUsers[usernameInput] || validUsers[normalizedUser];
             const expectedPassword = isValidUser;
 
-            // Valida a senha (considera variações comuns de zero à esquerda)
+            // Valida a senha
             let isPasswordCorrect = (passwordInput === expectedPassword);
             if (!isPasswordCorrect && usernameInput === 'rachelp' && passwordInput === '05101974') {
                 isPasswordCorrect = true;
