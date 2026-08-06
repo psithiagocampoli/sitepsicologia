@@ -58,7 +58,7 @@ document.addEventListener('DOMContentLoaded', () => {
         question.addEventListener('click', () => {
             const isActive = item.classList.contains('active');
             
-            // Close all other items (optional, but good UX)
+            // Close all other items
             faqItems.forEach(i => {
                 i.classList.remove('active');
                 i.querySelector('.faq-answer').style.maxHeight = null;
@@ -95,23 +95,34 @@ document.addEventListener('DOMContentLoaded', () => {
     // Login Form Logic
     const loginForm = document.getElementById('loginForm');
     if (loginForm) {
-        // Lista de usuários e senhas autorizados (Pode ser atualizada diariamente aqui)
+        // Lista oficial de usuários e senhas autorizados
         const validUsers = {
-            "arthurs": "14042016",
-            "evaldoa": "20081970",
-            "fábiog": "01051997",
-            "pedroa": "19012015",
-            "rafaelar": "14071989",
-            "victorian": "23092005",
+            "pedroc": "16072014",
+            "rachelp": "5101974",
+            "rachelp_alt": "05101974",
+            "vitork": "22032014",
             "brunoa": "19101984",
             "marcosm": "21082013",
-            "thiagoc": "16061994",
+            "natalien": "26091995",
             "osmars": "30081996",
             "paulav": "14111990",
+            "pedroa": "19012015",
+            "victorian": "23092005",
+            "rafaelar": "14071989",
             "renanm": "16051987",
-            "davip": "02042013",
-            "simonef": "10031983",
-            "rafaelas": "14071989"
+            "evaldoa": "20081970",
+            "fábiog": "01051997",
+            "fabiog": "01051997",
+            "arthurs": "14042016",
+            "alessandroc": "03011969",
+            "daianas": "25082010",
+            "daniels": "08032013",
+            "felipek": "29102017",
+            "rodrigos": "27062014",
+            "matheusc": "12011993",
+            "ademirc": "12011965",
+            "katiac": "29041964",
+            "thiagoc": "16061994"
         };
 
         loginForm.addEventListener('submit', function(e) {
@@ -121,8 +132,19 @@ document.addEventListener('DOMContentLoaded', () => {
             const passwordInput = document.getElementById('password').value.trim();
             const errorDiv = document.getElementById('loginError');
 
-            // Valida se o usuário existe e se a senha está correta
-            if (validUsers[usernameInput] && validUsers[usernameInput] === passwordInput) {
+            // Normaliza usuário (remove acentos se necessário)
+            const normalizedUser = usernameInput.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+
+            const isValidUser = validUsers[usernameInput] || validUsers[normalizedUser];
+            const expectedPassword = isValidUser;
+
+            // Valida a senha (considera variações comuns de zero à esquerda)
+            let isPasswordCorrect = (passwordInput === expectedPassword);
+            if (!isPasswordCorrect && usernameInput === 'rachelp' && passwordInput === '05101974') {
+                isPasswordCorrect = true;
+            }
+
+            if (isValidUser && isPasswordCorrect) {
                 // Sucesso no login, redireciona para a plataforma
                 if (errorDiv) errorDiv.style.display = 'none';
                 window.location.href = 'plataforma.html';
