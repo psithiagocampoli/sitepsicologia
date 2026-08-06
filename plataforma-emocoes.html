@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>O que é Emoção e Como Lidar | Thiago Soares Campoli</title>
+    <link rel="stylesheet" href="platform-styles.css">
+    <style>
+        .video-container iframe {
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
+        .episode {
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navbar -->
+    <nav class="ead-navbar" id="navbar" style="background-color: var(--bg-nav);">
+        <div class="ead-nav-left">
+            <a href="plataforma.html" class="ead-logo">
+                <img src="assets/logo.png" alt="Logo Thiago Soares Campoli" onerror="this.outerHTML='<h3 style=\'color:white; font-family:serif;\'>Thiago Soares Campoli</h3>'">
+            </a>
+            <ul class="ead-menu">
+                <li><a href="plataforma.html">Página Inicial</a></li>
+                <li><a href="plataforma.html">Voltar ao Catálogo</a></li>
+            </ul>
+        </div>
+        <div class="ead-nav-right">
+            <div class="profile-avatar" title="Meu Perfil"></div>
+        </div>
+    </nav>
+
+    <div class="player-layout">
+        <!-- Video Area Player -->
+        <div class="video-container">
+            <iframe id="main-video-player" 
+                    src="https://www.youtube.com/embed/9M6_Ha2NLkg?rel=0&autoplay=0" 
+                    title="Player de Vídeo - O que é Emoção" 
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                    allowfullscreen>
+            </iframe>
+        </div>
+
+        <div class="course-content-grid">
+            <!-- Left Column: Details -->
+            <div class="course-details">
+                <div class="course-header">
+                    <h1 id="lesson-title">Aula 1: O que é emoção e como lidar com ela?</h1>
+                    <div class="course-meta">
+                        <span>Trilha: Emoções e Regulação Emocional</span>
+                        <span id="lesson-duration">Duração: Aula Prática</span>
+                    </div>
+                </div>
+
+                <div class="course-tabs">
+                    <div class="tab active">Visão Geral da Aula</div>
+                    <div class="tab">Materiais Anexos</div>
+                </div>
+
+                <p class="course-desc" id="lesson-desc">
+                    Nesta aula, exploramos a função biológica e psicológica das emoções. Entenda por que sentimos o que sentimos, como identificar os sinais emocionais no corpo e estratégias práticas para acolher e regular suas emoções no dia a dia sem julgamento ou esquiva.
+                </p>
+
+                <h3 style="margin-top: 2rem; margin-bottom: 1rem; font-size: 1.1rem;">Materiais Complementares (PDF)</h3>
+                <div class="materials-list">
+                    <a href="#" class="material-item">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color:#788C83;"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
+                        Guia de Regulação Emocional - O que são emoções.pdf
+                    </a>
+                </div>
+            </div>
+
+            <!-- Right Column: Lesson List -->
+            <div class="episodes-panel">
+                <h3 class="episodes-title">Conteúdo do Módulo</h3>
+                
+                <div class="episode active" 
+                     data-video-id="9M6_Ha2NLkg" 
+                     data-title="Aula 1: O que é emoção e como lidar com ela?" 
+                     data-duration="Duração: Aula Prática" 
+                     data-desc="Nesta aula, exploramos a função biológica e psicológica das emoções. Entenda por que sentimos o que sentimos, como identificar os sinais emocionais no corpo e estratégias práticas para acolher e regular suas emoções no dia a dia sem julgamento ou esquiva.">
+                    <div class="episode-num">1</div>
+                    <div class="episode-info">
+                        <h4>O que é emoção e como lidar</h4>
+                        <p class="episode-status">Assistindo agora • Aula 1</p>
+                    </div>
+                </div>
+
+                <div class="episode" style="opacity: 0.6; cursor: default;">
+                    <div class="episode-num">2</div>
+                    <div class="episode-info">
+                        <h4>O que são pensamentos e como lidar</h4>
+                        <p>Em breve • Próxima Aula</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
